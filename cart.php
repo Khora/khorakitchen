@@ -75,7 +75,7 @@
                             }
                             if (isset($_SESSION['cart'])) {
                                 if (count($_SESSION['cart']) != 0) {
-                                    echo '<br><center><h2>TOTAL: ' . getCurrentPriceOfCart() . '&#8364;</h2></center><br><br>';
+                                    echo '<br><center><h2>TOTAL: ' . getInCurrentCurrency(getCurrentPriceOfCart()) . '</h2></center><br><br>';
                                     $insert = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                                     if (isMobile()) {
