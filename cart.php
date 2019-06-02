@@ -55,7 +55,7 @@
                         <center><br><br><a href="store.php" class="bigButton">&lt; BACK</a>
                         <?php
                             if (isMobile()) {
-                                echo '<br>';
+                                echo '<br><br>';
                             } else {
                                 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             }
@@ -79,7 +79,7 @@
                                     $insert = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                                     if (isMobile()) {
-                                        $insert = '<br>';
+                                        $insert = '<br><br>';
                                     }
                                     echo '<center><a href="store.php" class="bigButton">&lt; BACK</a>' . $insert . '<a href="donate.php" class="bigButton">DONATION &gt;</a></center><br><br>';
                                 }
