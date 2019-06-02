@@ -66,8 +66,6 @@
                             function updateRadioBoxesDonation(boxId) {
                                 document.getElementById(boxId).checked = true;
                                 if (document.getElementById('radio1').checked) {
-                                    console.log(boxId);
-                                    console.log(document.getElementById(boxId).checked);
                                     document.getElementById('radioDiv1').style.opacity = 1;
                                     document.getElementById('radioDiv2').style.opacity = 0.6;
                                 } else {
@@ -108,10 +106,15 @@
                                     <input type="hidden" name="currency_code" value="<?php echo $currency; ?>">
                                     <input type="hidden" name="no_note" value="0">
                                     <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-                                    <input type="image" src="img/payPalLogoBig.png" class="bigButton" name="submit" alt="PayPal">
+                                    <input type="image" src="img/payPalLogoBig.png" class="bigButton" name="submit" alt="PayPal" onclick="callDelayed(goToThankYouPage, 3000);">
                                 </form>
                             </div>
                         </div>
+                        <script>
+                            function goToThankYouPage(boxId) {
+                                window.location.href = getCurrentServerAndPath() + 'thanks.php';
+                            }
+                        </script>
                             
                         </br></br></br><br>
                         

@@ -1,4 +1,7 @@
 <?php
+    // include config files
+    include "config/fixerApiKey.php";
+
     // set max execution time to infinity
     set_time_limit(0);
     
@@ -10,6 +13,9 @@
      * Initialisation method, to be called first.
      */
     function initSessionVariables() {
+        // how old (in seconds) data may be at most (1 day)
+        $_SESSION["dataExpiryTimeSeconds"] = 1 * 24 * 60 * 60;
+        
         // get if the client is a mobile device
         $mobile = "false";
         if (isset($_SESSION["mobile"])) {
@@ -20,15 +26,15 @@
         }
         $_SESSION["mobile"] = $mobile;
         
-        // the chosen language of the client
-        $language = "English";
-        if (isset($_SESSION["language"])) {
-            $language = $_SESSION["language"];
+        // the chosen currency of the client
+        $currency = "GBP";
+        if (isset($_SESSION["currency"])) {
+            $currency = $_SESSION["currency"];
         }
-        if (isset($_GET["language"])) {
-            $language = htmlspecialchars($_GET["language"]);
+        if (isset($_GET["currency"])) {
+            $currency = htmlspecialchars($_GET["currency"]);
         }
-        $_SESSION["language"] = $language;
+        $_SESSION["currency"] = $currency;
     }
     
     /*
@@ -42,14 +48,14 @@
     }
     
     /*
-     * Getter for the language of the client.
+     * Getter for the currency of the client.
      */
-    function getLanguage() {
-        $currentLanguage = "English";
-        if (isset($_SESSION["language"]) && strcmp($_SESSION["language"], "") != 0) {
-            $currentLanguage = $_SESSION["language"];
+    function getCurrency() {
+        $currentCurrency = "GBP";
+        if (isset($_SESSION["currency"]) && strcmp($_SESSION["currency"], "") != 0) {
+            $currentCurrency = $_SESSION["currency"];
         }
-        return $currentLanguage;
+        return $currentCurrency;
     }
     
     /*
@@ -149,7 +155,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                    </div>' . getDonationProgress(150, 500, "calc(50% + 200px)", "-71px") . getEurosPoundsSwitch("calc(50% + 343px)", "36px") . getCartButton("calc(50% + 390px)", "36px") . getShadow();
+                    </div>' . getDonationProgress(getCurrentDonationProgress(), getTargetDonationProgress(), "calc(50% + 200px)", "-71px") . getEurosPoundsSwitch("calc(50% + 343px)", "36px") . getCartButton("calc(50% + 390px)", "36px") . getShadow();
         } else {
             return '<div id="mobileMenuBackground">
                 </div>
@@ -167,7 +173,7 @@
                 
                 <div id="mobileMenuContent" style="background: red;">
                 <table id="mobileMenuTable" class="gridtable" width="100%">
-                    ' . getDonationProgress(150, 500, "20px", "-35px") . getEurosPoundsSwitch("calc(100% - 65mm)", "71px") . getCartButton("calc(100% - 55mm)", "71px") . '
+                    ' . getDonationProgress(getCurrentDonationProgress(), getTargetDonationProgress(), "20px", "-35px") . getEurosPoundsSwitch("calc(100% - 65mm)", "71px") . getCartButton("calc(100% - 55mm)", "71px") . '
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
                             <br>
@@ -322,6 +328,7 @@
         $targetDonationAmount = max($targetDonationAmount, 0);
         $percentage = 100 * $alreadyCollectedDonationAmount / $targetDonationAmount;
         $percentage = min(max($percentage, 0), 100);
+        
         return'<style type="text/css" media="screen">
                     .progressBarContainer {
                         font-size: 14px;
@@ -375,7 +382,7 @@
                     <div class="progressBar">
                         <div class="progressBarOrange"></div>
                     </div>
-                    &nbsp;' . $alreadyCollectedDonationAmount . '&euro; of ' . $targetDonationAmount . '&euro;
+                    &nbsp;' . getInCurrentCurrency($alreadyCollectedDonationAmount) . ' of ' . getInCurrentCurrency($targetDonationAmount) . '
                 </a>
             </div>
         ';
@@ -385,6 +392,10 @@
      * Gets a formatted switch for Euros and Pounds.
      */
     function getEurosPoundsSwitch($xPos, $yPos) {
+        $checked = '';
+        if (strcmp(getCurrency(), 'EUR') != 0) {
+           $checked = 'checked'; 
+        }
         return '<style type="text/css" media="screen">
                     .onoffswitch {
                         position: fixed;
@@ -429,14 +440,14 @@
                     }
 
                     .onoffswitch-inner:before {
-                        content: "€";
+                        content: "£";
                         padding-left: 10px;
                         background-color: #FFC65B;
                         color: #000000;
                     }
 
                     .onoffswitch-inner:after {
-                        content: "£";
+                        content: "€";
                         padding-right: 10px;
                         background-color: #FFC65B;
                         color: #000000;
@@ -512,15 +523,25 @@
                 </style>
         
                 <div class="onoffswitch">
-                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                    <label class="onoffswitch-label" for="myonoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="currencyonoffswitch" onclick="callDelayed(currencySwitchClicked, 500);" ' . $checked . '>
+                    <label class="onoffswitch-label" for="currencyonoffswitch">
                         <span class="onoffswitch-inner"></span>
                     </label>
-                    <div class="bottom">
+                    <div class="bottom" id="a">
                         <center>Change Currency</center>
                         <i></i>
                     </div>
                 </div>
+                
+                <script>
+                    function currencySwitchClicked() {
+                        currency = "GBP";
+                        if (!currencyonoffswitch.checked) {
+                            currency = "EUR";
+                        }
+                        window.location.href = getCurrentServerAndPath() + getCurrentFileName() + "?currency=" + currency;
+                    }
+                </script>
         ';
     }
     
@@ -693,7 +714,7 @@
                             <a href="item.php?id=' . $id . '">
                                 <p class="large">' . $item['name'] . '</p>
                                 <small>' . $item['title'] . '</small></br></br>
-                                Price: ' . $item['price'] . ' &#8364;<span class="right"><small>ID: ' . $id . '</small></span>
+                                Price: ' . getInCurrentCurrency(floatval($item['price'])) . '<span class="right"><small>ID: ' . $id . '</small></span>
                             </a>
                         </td>
                     </tr>
@@ -722,7 +743,7 @@
                             <small>' . $item['description'] . '</small><br><br>
                             Type: ' . $item['type'] . '<br><br>
                             Category: ' . $item['category'] . '<br><br>
-                            Price: ' . $item['price'] . '&euro;<br><br>
+                            Price: ' . getInCurrentCurrency(floatval($item['price'])) . '<br><br>
                             <input type="submit" id="addToCartUp' . $id . '" class="addToCartTextInput" name="quantity" value="&#8593;" size="2"/>&nbsp;
                             <input type="text" id="addToCartTextInput' . $id . '" class="addToCartTextInput" name="quantity" value="' . $amount . '" size="2"/>&nbsp;
                             <input type="submit" id="addToCartDown' . $id . '" class="addToCartTextInput" name="quantity" value="&#8595;" size="2"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -782,7 +803,7 @@
                             </script>
 							</br></br>
                             
-							Price: ' . $item['price'] . ' &#8364; * ' . $amount . ' = ' . floatval($item['price']) * floatval($amount) . '&#8364;<span class="right"><small>ID: ' . $id . '</small></span>
+							Price: ' . getInCurrentCurrency(floatval($item['price'])) . ' * ' . $amount . ' = ' . getInCurrentCurrency(floatval($item['price']) * floatval($amount)) . '<span class="right"><small>ID: ' . $id . '</small></span>
 						</td>
 					</tr>
 				</table>
@@ -801,7 +822,7 @@
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
 			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
-			$priceTotal = $priceTotal + floatval($item['price']) * $value;
+			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price'])) * $value ;
 		}
 		return $priceTotal;
 	}
@@ -822,13 +843,6 @@
             }
         }
 		return $retValue;
-	}
-
-	function getCurrency() {
-        /*if () {
-            return 'EUR';
-        }*/
-		return 'GBP';
 	}
 	
 	function simplifyString($input) {
@@ -861,13 +875,6 @@
         echo "<p style='z-index: 50000; font-size: 8px'>Debug: " . $message . "</p>";
     }
     
-    function i18n($key) {
-        // find corresponding value to key
-        $value = json_decode(getFileContent("i18n/i18n.json"), true)[getLanguage()][$key];
-        // in the end make spaces to hard spaces
-        return str_replace(" ", "&nbsp;", htmlentities($value));
-    }
-    
     function getProtocolName() {
         $isSecure = false;
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
@@ -879,5 +886,109 @@
         $protocol = $isSecure ? 'https' : 'http';
         
         return $protocol;
+    }
+    
+    function getInCurrentCurrency($value) {
+        if (strcmp(getCurrency(), "EUR") == 0) {
+            return getPoundsToEuros($value) . "&euro;";
+        }
+        return $value . "&pound;";
+    }
+    
+    function getInCurrentCurrencyValueOnly($value) {
+        if (strcmp(getCurrency(), "EUR") == 0) {
+            return getPoundsToEuros($value);
+        }
+        return $value;
+    }
+    
+    function getCurrentCurrencySymbol() {
+        if (strcmp(getCurrency(), "EUR") == 0) {
+            return "&euro;";
+        }
+        return "&pound;";
+    }
+    
+    function getPoundsToEuros($value) {
+        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 2);
+    }
+    
+    function getPoundsToEurosExchangeCourse() {
+        if (!file_exists("data/poundsToEurosCourse.txt") || (time() - filemtime("data/poundsToEurosCourse.txt")) > $_SESSION["dataExpiryTimeSeconds"]) {
+            // make all needed variable global
+            global $fixerApiKey;
+            $url = "http://data.fixer.io/api/latest?access_key=" . $fixerApiKey . "&format=1&symbols=GBP&base=EUR";
+            $data = 1 / floatval(getJsonFileContentAsObject(downloadFileViaCurl($url))["rates"]["GBP"]);
+            writeToFile($data, "data", "poundsToEurosCourse.txt");
+            return floatval($data);
+        }
+        return floatval(readFromFile("data/poundsToEurosCourse.txt"));
+    }
+    
+    function getCurrentDonationProgress() {
+        if (strcmp(readFromFile("data/currentDonationProgress.txt"), "") == 0) {
+            writeToFile("0", "data", "currentDonationProgress.txt");
+            return "0";
+        }
+        return readFromFile("data/currentDonationProgress.txt");
+    }
+    
+    function setCurrentDonationProgress($currentDonationProgress) {
+        writeToFile(htmlspecialchars($currentDonationProgress), "data", "currentDonationProgress.txt");
+    }
+    
+    function getTargetDonationProgress() {
+        if (strcmp(readFromFile("data/targetDonationProgress.txt"), "") == 0) {
+            writeToFile("10000", "data", "targetDonationProgress.txt");
+            return "10000";
+        }
+        return readFromFile("data/targetDonationProgress.txt");
+    }
+    
+    function setTargetDonationProgress($targetDonationProgress) {
+        writeToFile(htmlspecialchars($targetDonationProgress), "data", "targetDonationProgress.txt");
+    }
+    
+    function readFromFile($filepath) {
+        if (!file_exists($filepath)) {
+            return "";
+        }
+		$fileToRead = fopen($filepath, "r+") or die("File not found!");
+		$content = fread($fileToRead, filesize($filepath));
+		fclose($fileToRead);
+        return $content;
+    }
+    
+    function writeToFile($content, $dir, $filename) {
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
+		$fileToWrite = fopen($dir . "/" . $filename, "w+") or die("File not found!");
+		fwrite($fileToWrite, $content);
+		fclose($fileToWrite);
+    }
+    
+    function getJsonFileContentAsObject($string) {
+        return json_decode($string, true);
+    }
+    
+    function downloadFileViaCurl($url) {
+        if (!ini_set('default_socket_timeout', 1500)) {
+            error("Unable to change socket timeout!");
+        }
+        
+        $c = curl_init();
+        curl_setopt($c, CURLOPT_URL, $url);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_SSLVERSION, 6);
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        return $data;
     }
 ?>
