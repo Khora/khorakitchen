@@ -11,19 +11,12 @@
 	<body>
 		<div id="wrapper">
             <?php
-                echo getPageHeader();
-            ?>
-            <?php
-                echo getShadow();
+                echo getPageHeader("CONTACT and FAQ");
             ?>
             <div id="content">
                 <?php
-                    echo getDonationProgress(150, 500, "calc(50% + 160px)", "-62px");
+                    echo getTopBanner();
                 ?>
-            
-                <div style="position: absolute; width: 100%; height: 35px; top: 0px; padding-top: 18px; background: #ffffbf; text-align: center;">
-                    1,000 meals per day for refugees and people in need
-                </div>
                 
                 <br><br><br><br><br><br>
                 <div class="horizontalCenteredBase">

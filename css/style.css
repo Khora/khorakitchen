@@ -9,7 +9,9 @@ body {
 
 h1 {
 	font-size: 40px;
-	color: #ffdd00;
+    line-height: 50px;
+	color: #714900;
+    text-decoration: underline overline;
 }
 
 h2 {
@@ -101,7 +103,7 @@ a:hover {
     background-image: url("../img/shadow.png");
     background-repeat: repeat;
     position: fixed;
-    z-index: 1000;
+    z-index: 1050;
 }
 
 #content {
@@ -261,8 +263,24 @@ a:hover {
 }
 
 .bigButton:active {
-	position:relative;
-	top:1px;
+	border-radius:10px;
+	opacity: 0.1;
+}
+
+#topBanner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background: #ffffbf;
+    text-align: center;
+}
+
+#topBannerPadding {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #webpage {
@@ -476,4 +494,21 @@ a:hover {
 	-moz-transition: 0.2s;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
+}
+
+.clickableDiv {
+    -o-transition: 0.2s;
+	-ms-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+    margin: 20px;
+    padding: 20px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	background: #ffffbf;
+	opacity: 0.6;
+	cursor: pointer;
 }
