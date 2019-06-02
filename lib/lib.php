@@ -822,7 +822,7 @@
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
 			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
-			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price'])) * $value ;
+			$priceTotal = $priceTotal + floatval($item['price']) * $value;
 		}
 		return $priceTotal;
 	}
@@ -836,9 +836,9 @@
             }
             if ($i > 0) {
                 if ($i == 1) {
-                    $retValue = getCurrentPriceOfCart() . '&nbsp;' . getCurrency() . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
+                    $retValue = getInCurrentCurrency(getCurrentPriceOfCart()) . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
                 } else {
-                    $retValue = getCurrentPriceOfCart() . '&nbsp;' . getCurrency() . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
+                    $retValue = getInCurrentCurrency(getCurrentPriceOfCart()) . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
                 }
             }
         }
