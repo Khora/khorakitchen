@@ -24,16 +24,25 @@
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>
                 
-                <br><br>
+                <br><br><br><br>
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        <center><h1>ABOUT</h1></center><br><br>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                     </div>
                 </div>
                 
                 <br><br><br><br>
+                
+                <div class="horizontalCenteredBase">
+                    <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
+                        <a href="store.php" class="bigButton">GO TO STORE</a>
+                    </div>
+                </div>
+                
+                <br><br><br><br><br>
                 
                 <?php
                     $text = '"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."<br><br><i>— Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</i>';

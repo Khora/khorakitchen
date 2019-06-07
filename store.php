@@ -24,8 +24,18 @@
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>
                 
+                <br><br><br><br>
+                
+                
                 <p id="search"></p>
-                <br><br><br>
+                
+                <div class="horizontalCenteredBase">
+                    <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        <center><h1>STORE</h1></center>
+                    </div>
+                </div>
+                
+                <br>
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
@@ -38,7 +48,7 @@
                             }
                             
                             echo '<img src="img/search_large.png">&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="text" id="searchField" name="searchField" value="' . $searchPrefilled . '" placeholder="SEARCH" autofocus="autofocus" onkeydown="if (event.keyCode == 13) {startSearch(document.getElementById(\'searchField\').value);}">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="searchField" name="searchField" value="' . $searchPrefilled . '" placeholder="SEARCH" onkeydown="if (event.keyCode == 13) {startSearch(document.getElementById(\'searchField\').value);}">&nbsp;&nbsp;&nbsp;&nbsp;
                             <span class="right"><img src="img/startSearch.png" onclick="startSearch(document.getElementById(\'searchField\').value);"></span>
                             </br></br></br></br>';
                             

@@ -11,6 +11,12 @@
 	<body>
 		<div id="wrapper">
             <?php
+                $zeroValues = array();
+                if (isset($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $value) {
+                        unset($_SESSION['cart'][$key]);
+                    }
+                }
                 echo getPageHeader("THANK YOU");
             ?>
             <div id="content">
@@ -24,7 +30,16 @@
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>
                 
-                <br><br><br><br><br><br>
+                <br><br><br><br>
+                
+                <div class="horizontalCenteredBase">
+                    <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        <center><h1>THANK YOU</h1></center>
+                    </div>
+                </div>
+                
+                <br><br>
+                
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
                         <h2>Thank you for the donation</h2>

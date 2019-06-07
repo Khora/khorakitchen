@@ -18,7 +18,16 @@
                     echo getTopBanner();
                 ?>
                 
-                <br><br><br><br><br><br>
+                <br><br><br><br>
+                
+                <div class="horizontalCenteredBase">
+                    <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        <center><h1>TERMS and CONDITIONS</h1></center>
+                    </div>
+                </div>
+                
+                <br><br>
+                
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
                         <h2>Lorem ipsum</h2>

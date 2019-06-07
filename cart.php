@@ -60,7 +60,7 @@
                                 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             }
                         ?>
-                        <a href="donate.php" class="bigButton">DONATION &gt;</a></center><br><br>
+                        <a href="checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>
                         <center><h1>SHOPPING CART</h1></center>
                         <?php
                             if (isset($_SESSION['cart'])) {
@@ -68,10 +68,10 @@
                                     echo displayItemOnCartPresentation(parseId($key), $value);
                                 }
                                 if (count($_SESSION['cart']) == 0) {
-                                    echo '<center>Cart is empty!<br><br></center><script>hideDiv(document.getElementById("sendOrder"))</script>';
+                                    echo '<br><br><br><br><br><br><center>Cart is empty!<br><br></center><br><br><br><br>';
                                 }
                             } else {
-                                    echo '<center>Cart is empty!<br><br></center><script>hideDiv(document.getElementById("sendOrder"))</script>';
+                                    echo '<br><br><br><br><center>Cart is empty!<br><br></center><br><br><br><br>';
                             }
                             if (isset($_SESSION['cart'])) {
                                 if (count($_SESSION['cart']) != 0) {
@@ -81,7 +81,7 @@
                                     if (isMobile()) {
                                         $insert = '<br><br>';
                                     }
-                                    echo '<center><a href="store.php" class="bigButton">&lt; BACK</a>' . $insert . '<a href="donate.php" class="bigButton">DONATION &gt;</a></center><br><br>';
+                                    echo '<center><a href="store.php" class="bigButton">&lt; BACK</a>' . $insert . '<a href="checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>';
                                 }
                             }
                         ?>

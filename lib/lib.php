@@ -155,7 +155,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                    </div>' . getDonationProgress(getCurrentDonationProgress(), getTargetDonationProgress(), "calc(50% + 200px)", "-71px") . getEurosPoundsSwitch("calc(50% + 343px)", "36px") . getCartButton("calc(50% + 390px)", "36px") . getShadow();
+                    </div>' . getDonationProgress(getCurrentDonationProgress(), getTargetDonationProgress(), "calc(50% + 190px)", "-71px") . getEurosPoundsSwitch("calc(50% + 343px)", "36px") . getCartButton("calc(50% + 390px)", "36px") . getShadow();
         } else {
             return '<div id="mobileMenuBackground">
                 </div>
@@ -341,7 +341,7 @@
                         transition: 0.2s;
                         opacity: 1;
                         margin: 100px auto;
-                        width: 105px;
+                        width: auto;
                         height: 10px;
                         position: fixed;
                         top: ' . $yPos . ';
@@ -910,7 +910,7 @@
     }
     
     function getPoundsToEuros($value) {
-        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 2);
+        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 0);
     }
     
     function getPoundsToEurosExchangeCourse() {
