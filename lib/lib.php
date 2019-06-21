@@ -1,6 +1,9 @@
 <?php
     // include config files
     include "config/fixerApiKey.php";
+    include "config/emailForMessages.php";
+    include "config/payPalCredentials.php";
+    include "config/emailForPayPal.php";
 
     // set max execution time to infinity
     set_time_limit(0);
@@ -99,6 +102,8 @@
                             document.location = "' . basename($_SERVER['PHP_SELF']) . '?mobile=true";
                         }
                     </script>
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 </head>';
         } else {
             return '<head>
@@ -585,7 +590,7 @@
         if (!isMobile()) {
             return '<div style="position: relative; width: 100%; height: 500px;">
                     <div style="position: absolute; width: 50%; height: 500px; background: #ffc65b;">
-                        <div style="padding-top: 55px; padding-bottom: 100px; padding-right: 100px; font-size: 15px; line-height: 20px;">
+                        <div style="padding-top: 55px; padding-bottom: 100px; padding-right: 100px; font-size: 20px; line-height: 25px;">
                             <div style="width: 300px; float: right;">
                                 ' . $text . '
                             </div>
@@ -596,7 +601,7 @@
         } else {
             return '<div style="position: relative; width: 100%; height: auto;">
                     <div style="position: relative; width: 100%; height: auto; background: #ffc65b;">
-                        <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 10px; padding-right: 10px; font-size: 15px; line-height: 20px;">
+                        <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 10px; padding-right: 10px; font-size: 20px; line-height: 25px;">
                             <div style="float: center;">
                                 ' . $text . '
                             </div>
@@ -759,6 +764,11 @@
                                         document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
+                                document.getElementById("addToCartTextInput' . $id . '").onkeyup = function() {
+                                    if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
+                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                    }
+                                };
                             </script>
                         </td>
                     </tr>
@@ -800,10 +810,15 @@
                                         document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
+                                document.getElementById("addToCartTextInput' . $id . '").onkeyup = function() {
+                                    if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
+                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                    }
+                                };
                             </script>
 							</br></br>
                             
-							Price: ' . getInCurrentCurrency(floatval($item['price'])) . ' * ' . $amount . ' = ' . getInCurrentCurrency(floatval($item['price']) * floatval($amount)) . '<span class="right"><small>ID: ' . $id . '</small></span>
+							Price: ' . getInCurrentCurrency(floatval($item['price'])) . ' * ' . $amount . ' = ' . getInCurrentCurrencyValueOnly(floatval($item['price'])) * floatval($amount) . getCurrentCurrencySymbol() . '<span class="right"><small>ID: ' . $id . '</small></span>
 						</td>
 					</tr>
 				</table>
@@ -822,7 +837,7 @@
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
 			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
-			$priceTotal = $priceTotal + floatval($item['price']) * $value;
+			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price'])) * $value;
 		}
 		return $priceTotal;
 	}
@@ -836,9 +851,9 @@
             }
             if ($i > 0) {
                 if ($i == 1) {
-                    $retValue = getInCurrentCurrency(getCurrentPriceOfCart()) . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
+                    $retValue = getCurrentPriceOfCart() . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
                 } else {
-                    $retValue = getInCurrentCurrency(getCurrentPriceOfCart()) . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
+                    $retValue = getCurrentPriceOfCart() . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
                 }
             }
         }
@@ -910,12 +925,12 @@
     }
     
     function getPoundsToEuros($value) {
-        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 0);
+        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 2);
     }
     
     function getPoundsToEurosExchangeCourse() {
         if (!file_exists("data/poundsToEurosCourse.txt") || (time() - filemtime("data/poundsToEurosCourse.txt")) > $_SESSION["dataExpiryTimeSeconds"]) {
-            // make all needed variable global
+            // make needed variable global
             global $fixerApiKey;
             $url = "http://data.fixer.io/api/latest?access_key=" . $fixerApiKey . "&format=1&symbols=GBP&base=EUR";
             $data = 1 / floatval(getJsonFileContentAsObject(downloadFileViaCurl($url))["rates"]["GBP"]);
@@ -981,6 +996,282 @@
         curl_setopt($c, CURLOPT_URL, $url);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($c, CURLOPT_SSLVERSION, 6);
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        return $data;
+    }
+    
+    function getEmailForPayPal() {
+        global $emailForPayPal;
+        return $emailForPayPal;
+    }
+    
+    function getEmailForMessages() {
+        global $emailForMessages;
+        return $emailForMessages;
+    }
+    
+    function getPayPalOAuthBearer() {
+        global $payPalCredentials;
+        $c = curl_init();
+        
+        curl_setopt($c, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/oauth2/token");
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
+        curl_setopt($c, CURLOPT_USERPWD, $payPalCredentials);
+        curl_setopt($c, CURLOPT_HTTPHEADER, array("Accept: application/json", "Accept-Language: en_US"));
+        
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        return json_decode($data, true)["access_token"];
+    }
+    
+    function makePayPalPaymentAndReturnUrlToAuthorize($amount, $currency, $description, $name, $line1, $line2, $city, $countryCode, $postalCode, $phone, $state) {
+        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $host = $_SERVER['HTTP_HOST'];
+        $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/') + 1);
+        
+        $noteToPayer = 'The Khora Community Kitchen would like to thank you for your donation!';
+        $returnUrl = "$protocol$host$pathOnHost" . 'confirmPayPalPayment.php';
+        $cancelUrl = "$protocol$host$pathOnHost" . 'store.php';
+        $dataJson = '{
+                      "intent": "sale",
+                      "payer": {
+                        "payment_method": "paypal"
+                      },
+                      "transactions": [
+                        {
+                          "amount": {
+                            "total": "' . $amount . '",
+                            "currency": "' . $currency . '"
+                          },
+                          "description": "' . $description . '",
+                          "item_list": {
+                            "shipping_address": {
+                              "recipient_name": "' . $name . '",
+                              "line1": "' . $line1 . '",
+                              "line2": "' . $line2 . '",
+                              "city": "' . $city . '",
+                              "state": "' . $state . '",
+                              "phone": "' . $phone . '",
+                              "postal_code": "' . $postalCode . '",
+                              "country_code": "' . $countryCode . '"
+                            }
+                          }
+                        }
+                      ],
+                      "note_to_payer": "' . $noteToPayer . '",
+                      "redirect_urls": {
+                        "return_url": "' . $returnUrl . '",
+                        "cancel_url": "' . $cancelUrl . '"
+                      }
+                    }';
+                
+        $c = curl_init();
+        
+        curl_setopt($c, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/payments/payment");
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POSTFIELDS, $dataJson); 
+        curl_setopt($c, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer(),
+            "Content-length: " . strlen($dataJson))
+        );
+        
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        return json_decode($data, true)["links"]["1"]["href"];
+    }
+    
+    function makePayPalRecurringPaymentAndReturnUrlToAuthorize($amount, $currency, $description, $name, $line1, $line2, $city, $countryCode, $postalCode, $phone, $state, $recurring) {
+        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $host = $_SERVER['HTTP_HOST'];
+        $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/') + 1);
+        
+        $noteToPayer = 'The Khora Community Kitchen would like to thank you for your donation!';
+        $returnUrl = "$protocol$host$pathOnHost" . 'confirmPayPalPayment.php';
+        $cancelUrl = "$protocol$host$pathOnHost" . 'store.php';
+        $dataJson = '{
+                          "name": "Khora Community Kitchen donation (' . strtolower($recurring) . 'ly)",
+                          "description": "' . $description . '",
+                          "type": "INFINITE",
+                          "payment_definitions": [
+                            {
+                              "name": "Khora Community Kitchen donation (' . strtolower($recurring) . 'ly)",
+                              "type": "REGULAR",
+                              "frequency": "' . $recurring .'",
+                              "frequency_interval": "1",
+                              "amount": {
+                                "value": "' . $amount .'",
+                                "currency": "' . $currency .'"
+                              },
+                              "cycles": "0"
+                            }
+                          ],
+                          "merchant_preferences": {
+                            "return_url": "' . $returnUrl . '",
+                            "cancel_url": "' . $cancelUrl . '",
+                            "auto_bill_amount": "YES",
+                            "initial_fail_amount_action": "CONTINUE",
+                            "max_fail_attempts": "0"
+                          }
+                        }';
+                
+        $c = curl_init();
+        curl_setopt($c, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/payments/billing-plans");
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POSTFIELDS, $dataJson); 
+        curl_setopt($c, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer(),
+            "Content-length: " . strlen($dataJson))
+        );
+        
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        $url = json_decode($data, true)["links"]["0"]["href"];
+        $id = json_decode($data, true)["id"];
+        
+        $dataJson = '[
+                      {
+                        "op": "replace",
+                        "path": "/",
+                        "value": {
+                          "state": "ACTIVE"
+                        }
+                      }
+                    ]';
+        
+        $c2 = curl_init();
+        curl_setopt($c2, CURLOPT_URL, $url);
+        curl_setopt($c2, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c2, CURLOPT_POSTFIELDS, $dataJson);
+        curl_setopt($c2, CURLOPT_CUSTOMREQUEST, 'PATCH');
+        curl_setopt($c2, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer())
+        );
+        
+        $data = curl_exec($c2);
+        $error = curl_error($c2); 
+        curl_close($c2);
+        
+        if ($error !== "") {
+            error($error);
+        }
+        
+        $nowPlusOneDayPlusFiveMinutes = date(DATE_RFC3339, time() + (1 * 24 * 60 * 60) + (5 * 60));
+        
+        $dataJson = '{
+                          "name": "Khora Community Kitchen donation (' . strtolower($recurring) . 'ly)",
+                          "description": "The Khora Community Kitchen would like to thank you for your ' . strtolower($recurring) . 'ly donation!",
+                          "start_date": "' . $nowPlusOneDayPlusFiveMinutes . '",
+                          "plan": {
+                            "id": "' . $id . '"
+                          },
+                          "payer": {
+                            "payment_method": "paypal"
+                          },
+                          "shipping_address": {
+                              "line1": "' . $line1 . '",
+                              "line2": "' . $line2 . '",
+                              "city": "' . $city . '",
+                              "state": "' . $state . '",
+                              "phone": "' . $phone . '",
+                              "postal_code": "' . $postalCode . '",
+                              "country_code": "' . $countryCode . '"
+                          }
+                        }';
+        
+        $c3 = curl_init();
+        curl_setopt($c3, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/payments/billing-agreements");
+        curl_setopt($c3, CURLOPT_POST, false);
+        curl_setopt($c3, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c3, CURLOPT_POSTFIELDS, $dataJson); 
+        curl_setopt($c3, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer())
+        );
+        
+        $data = curl_exec($c3);
+        $error = curl_error($c3); 
+        curl_close($c3);
+        
+        if ($error !== "") {
+            error($error);
+        }
+        
+        return json_decode($data, true)["links"]["0"]["href"];
+    }
+    
+    function executePayPalPayment($paymentId, $payerId) {
+        $dataJson = '{
+                        "payer_id": "' . htmlspecialchars($payerId) . '"
+                    }';
+                
+        $c = curl_init();
+        
+        curl_setopt($c, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/payments/payment/" . htmlspecialchars($paymentId) . "/execute");
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POSTFIELDS, $dataJson); 
+        curl_setopt($c, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer())
+        );
+        
+        $data = curl_exec($c);
+        $error = curl_error($c); 
+        curl_close($c);
+        
+        if ($error !== "") {
+            error($error);
+        }
+
+        return $data;
+    }
+    
+    function activateRecurringPayPalPayment($ecToken) {
+        $dataJson = '{}';
+                
+        $c = curl_init();
+        
+        curl_setopt($c, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/payments/billing-agreements/" . htmlspecialchars($ecToken) . "/agreement-execute");
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POSTFIELDS, $dataJson); 
+        curl_setopt($c, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Authorization: Bearer " . getPayPalOAuthBearer())
+        );
+        
         $data = curl_exec($c);
         $error = curl_error($c); 
         curl_close($c);

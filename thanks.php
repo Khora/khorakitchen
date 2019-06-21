@@ -18,55 +18,66 @@
                     }
                 }
                 echo getPageHeader("THANK YOU");
+                
+                if (isset($_GET['message'])) {
+                    $sender = getEmailForMessages();
+                    $to = getEmailForMessages();
+                    $subject = "A message by a donor via the madebykhora system";
+                    $message = "Please put this message up in the kitchen:\r\n\r\n-----------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
+                    $header = join("\r\n", array(
+                       'From: '.$sender,
+                       'Reply-To: '.$sender,
+                       'Return-Path: '.$sender, 
+                       'X-Mailer: PHP',
+                       'Content-type: text/plain; charset=utf-8'
+                    ));
+                    $messageToSend = html_entity_decode(utf8_decode($message));
+                    mail($to, $subject, $messageToSend, $header, '-f '.$sender);
+                }
             ?>
             <div id="content">
-                <?php
-                    echo getTopBanner();
-                    
-                    $text = '<h3>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                            <h3>-</h3>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
-                    $image = 'img/thankYou.jpg';
-                    echo getFullWidthTextAndImageBanner($text, $image);
-                ?>
-                
                 <br><br><br><br>
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        <center><h1>THANK YOU</h1></center>
-                    </div>
-                </div>
-                
-                <br><br>
-                
-                <div class="horizontalCenteredBase">
-                    <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        <center><h1>THANK YOU!</h1></center>
                         <h2>Thank you for the donation</h2>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-
-                        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-
-                        <h2>Lorem ipsum</h2>
-                        Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
-
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
-
-                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   
-
-                        Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   
-
-                        <h2>Lorem ipsum</h2>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-
-                        <h2>Lorem ipsum</h2>
-                        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-
-                        Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+                        Thank you for your kindness and generosity. Without people like you we wouldn’t be able to run the kitchen.<br><br>
+                        Your donation will help to feed 500 people a day, giving people the reliability of regular meals and the joy of eating nutritious and tasty food in a welcoming atmosphere.<br><br>
+                        <?php
+                            if (isset($_GET['message']) == false) {
+                                echo 'If you would like to send a message with your meal, please write it below.<br>We will stick this up in the kitchen for guests to read while they eat!<br><br><br><br>';
+                            }
+                        ?>
+                        
+                        <?php
+                            if (isset($_GET['message']) == false) {
+                                echo '<table width="100%">
+                                            <tr width="100%">
+                                                <td valign="center" width="10%">
+                                                    Message:<br><br>
+                                                </td>
+                                                <td>
+                                                    <textarea id="message" class="addToCartTextInput" name="message" rows="10" style="width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea><br><br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <center>
+                                            <a class="bigButton" onclick="sendMessage();">SEND</a>
+                                        </center>';
+                            } else {
+                                echo '<h3>Thank you for your message!<br><br>We will stick this up in the kitchen for guests to read while they eat!<h3><br><br><br><br>';
+                            }
+                        ?>
+                        
+                        <script>
+                            function sendMessage() {
+                                message = document.getElementById('message').value;
+                                window.location.href = getCurrentServerAndPath() + 'thanks.php?message=' + message;
+                            }
+                        </script>
+                        <br><br><br><br><br>
                     </div>
                 </div>
             </div>

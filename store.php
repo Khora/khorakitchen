@@ -16,10 +16,9 @@
             <div id="content">
                 <?php
                     echo getTopBanner();
-                    
-                    $text = '<h3>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                    $text = '<h3>You buy the food, we serve the meals.</h3>
                             <h3>-</h3>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
+                            Through buying meals and ingredients in our online store you are directly funding the provision of free meals to refugees and others in need living in Athens. No staff costs, no obstacles to access the food. It’s that simple.';
                     $image = 'img/storeTop.jpg';
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>

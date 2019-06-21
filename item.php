@@ -36,10 +36,10 @@
                                 if (file_exists("store/items/" . simplifyString($_GET["id"]) . ".json")) {
                                     echo displayItemOnSinglePresentation(simplifyString($_GET["id"]), $amount);
                                 } else {
-                                    echo "Error. Item not available.";
+                                    echo "Item not available.";
                                 }
                             } else {
-                                echo "Error. No item selected.";
+                                echo "No item selected. Please select an item.";
                             }
                         ?>
                     </div>
