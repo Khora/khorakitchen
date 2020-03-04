@@ -52,10 +52,14 @@
                                 } else {
                                     $url = makePayPalRecurringPaymentAndReturnUrlToAuthorize($amount, $currency, $description, $name, $line1, $line2, $city, $countryCode, $postalCode, $phone, $state, $recurring);
                                 }
-                                echo 'If this does not work, click <a style="text-decoration: underline;" href="' . $url . '">here</a>.';
-                                echo '<script>
-                                        window.location.href = "' . $url . '";
-                                    </script><br><br><br>';
+								if ($url !== '') {
+									echo 'If this does not work, click <a style="text-decoration: underline;" href="' . $url . '">here</a>.';
+									echo '<script>
+											window.location.href = "' . $url . '";
+										</script><br><br><br>';
+								} else {
+									echo "<h2>Something went wrong</h2>Please try later again.<br><br><br><br><br><br><br><br><br><br>";
+								}
                             } else {
                                 echo "<h2>Not all mandatory information was given</h2>Please try the checkout again.<br><br><br><br><br><br><br><br><br><br>";
                             }
