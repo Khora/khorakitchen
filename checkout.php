@@ -53,7 +53,7 @@
                                 <tr>
                                     <td valign="top" width="<?php echo $width; ?>%">
                                         <div id="radioDiv2" onmouseover="mouseOverRadioBox('radioDiv2')" onmouseout="mouseOutRadioBox('radioDiv2')" onclick="updateRadioBoxesDonation('radio2', false);" class="clickableDiv">
-                                            <h3><input id="radio2" type="radio" name="countrySelection" checked>&nbsp;&nbsp;I am living outside of the UK, my currency is &euro;</h3>
+                                            <h3><input id="radio2" type="radio" name="countrySelection" checked onclick="updateRadioBoxesDonationImpl('radio2', false, true);">&nbsp;&nbsp;I am living outside of the UK, my currency is &euro;</h3>
                                             <small>Your donation will come directly to the Khora Community and wil help serving food for people in need.<br><br></small>
                                         </div>
                                     </td>
@@ -61,7 +61,7 @@
                                 <tr>
                                     <td valign="top" width="<?php echo $width; ?>%">
                                         <div id="radioDiv1" onmouseover="mouseOverRadioBox('radioDiv1')" onmouseout="mouseOutRadioBox('radioDiv1')" onclick="updateRadioBoxesDonation('radio1', false);" class="clickableDiv">
-                                            <h3><input id="radio1" type="radio" name="countrySelection">&nbsp;&nbsp;I am living in the UK, my currency is &pound;</h3>
+                                            <h3><input id="radio1" type="radio" name="countrySelection" onclick="updateRadioBoxesDonationImpl('radio1', false, true);">&nbsp;&nbsp;I am living in the UK, my currency is &pound;</h3>
                                             <small>If you're a UK taxpayer you can boost your donation by 25p for every &pound;1 you donate.<br>
                                             <table style="padding: 20px;">
                                                 <tr>
@@ -432,8 +432,12 @@
                         </form>
                         <script>
                             function updateRadioBoxesDonation(boxId, firstStart) {
-                                if (!firstStart && !document.getElementById(boxId).checked) {
-                                    callDelayed(executeCurrencySwitch, 1000);
+								updateRadioBoxesDonationImpl(boxId, firstStart, false);
+							}
+							
+                            function updateRadioBoxesDonationImpl(boxId, firstStart, forceReload) {
+                                if (forceReload || (!firstStart && !document.getElementById(boxId).checked)) {
+                                    callDelayed(executeCurrencySwitch, 300);
                                 }
                                 document.getElementById(boxId).checked = true;
                                 if (document.getElementById('radio1').checked) {
