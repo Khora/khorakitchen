@@ -740,7 +740,7 @@
                 <table>
                     <tr>
                         <td style="width: 50%; padding: 0px;">
-                            <img style="float: right; padding-right: 50px; position: relative; height: 80%; width: 80%;" src="store/img/' . $item['image'] . '"></div>
+                            <img style="float: right; padding-right: 50px; position: relative; width: 80%;" src="store/img/' . $item['image'] . '"></div>
                         </td>' . $insertNewRow . '
                         <td style="width: 50%; padding-left: 20px;">
                             <h2>' . $newLines . $item['name'] . '</h2>
