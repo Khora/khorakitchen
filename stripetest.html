@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe Checkout Sample</title>
+    <meta name="description" content="A demo of Stripe client-only Checkout" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+
+  <body>
+    <div class="sr-root">
+      <div class="sr-main" style="display: flex;">
+        <header class="sr-header">
+          <div class="sr-header__logo"></div>
+        </header>
+        <div class="sr-container">
+          <section class="container">
+            <h1>One-time Donation</h1>
+            <button
+              data-checkout-mode="payment"
+              data-price-id="price_1HaK47LO5RaK7SdObu5dBh1w"
+            >
+Rice pounds one-time ID prod_IAfOc76FyMHAxs, API ID price_1HaK47LO5RaK7SdObu5dBh1w
+            </button>
+            <button
+              data-checkout-mode="payment"
+              data-price-id="price_1HaK4VLO5RaK7SdORnMXVG2R"
+            >
+Rice euros  one-time ID prod_IAfPTGOUzMqTqb, API ID price_1HaK4VLO5RaK7SdORnMXVG2R
+            </button>
+            <button
+              data-checkout-mode="payment"
+              data-price-id="price_1HaK4oLO5RaK7SdOnPVZtb33"
+            >
+Rice euros  monthly  ID prod_IAfP7WkrlY6Pqj, API ID price_1HaK4oLO5RaK7SdOnPVZtb33
+            </button>
+          </section>
+        </div>
+        <div id="error-message"></div>
+      </div>
+    </div>
+    <div class="banner">
+      <span>
+        This is a
+        <a href="https://github.com/stripe-samples"> Stripe Sample </a> on how
+        to use Stripe Checkout on GitHub Pages.
+        <a
+          href="https://github.com/stripe-samples/github-pages-stripe-checkout"
+        >
+          View code on GitHub.
+        </a>
+      </span>
+    </div>
+
+    <script>
+      // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
+      var PUBLISHABLE_KEY = 'pk_test_51HXLdpLO5RaK7SdO6rZKVM5RYhg0LvM6GmHmzj1BkZAcuwj5HudTVMcDY2vgTWQIvH1s38p09iZFR9OFrI2zSkfY00DgRYK195';
+      // Replace with the domain you want your users to be redirected back to after payment
+      var DOMAIN = location.href.replace(/[^/]*$/, '');
+
+      var stripe = Stripe(PUBLISHABLE_KEY);
+
+      // Handle any errors from Checkout
+      var handleResult = function (result) {
+        if (result.error) {
+          var displayError = document.getElementById('error-message');
+          displayError.textContent = result.error.message;
+        }
+      };
+
+      document.querySelectorAll('button').forEach(function (button) {
+        button.addEventListener('click', function (e) {
+          var mode = e.target.dataset.checkoutMode;
+          var priceId = e.target.dataset.priceId;
+          var items = [{ price: priceId, quantity: 1 }];
+
+          // Make the call to Stripe.js to redirect to the checkout page
+          // with the sku or plan ID.
+          stripe
+            .redirectToCheckout({
+              mode: mode,
+              lineItems: items,
+              successUrl:
+                'https://mydearfear.com/madebykhora/store.php?session_id={CHECKOUT_SESSION_ID}',
+              cancelUrl:
+                'https://mydearfear.com/madebykhora/store.php?cancelled=true&session_id={CHECKOUT_SESSION_ID}',
+            })
+            .then(handleResult);
+        });
+      });
+    </script>
+  </body>
+</html>
