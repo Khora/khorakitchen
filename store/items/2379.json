@@ -1,9 +1,9 @@
 {
-	"name": "Lorem Ipsum",
-	"title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-	"description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-	"type": "Lorem",
-	"category": "Lorem/Ipsum",
-	"image": "1.png",
+	"name": "Olive Oil",
+	"title": "5l",
+	"description": "A lovely big bottle of local Greek olive oil for dressing our daily delicious salads.",
+	"type": "Miscellaneous",
+	"category": "Nourishments/Miscellaneous",
+	"image": "2a.jpg",
 	"price": 10
 }

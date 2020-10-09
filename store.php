@@ -51,46 +51,56 @@
                             <span class="right"><img src="img/startSearch.png" onclick="startSearch(document.getElementById(\'searchField\').value);"></span>
                             </br></br></br></br>';
                             
-                            $paddingLeft = 80;
+                            $spacing = 10;
                             if (isMobile()) {
-                                $paddingLeft = 0;
+                                $spacing = 0;
                             }
                             
-                            $table = '<table style="width: 100%; padding-left: ' . $paddingLeft . 'px;">';
+                            $table = '<table style="width: 100%; padding: ' . $spacing . 'px; margin: ' . $spacing . 'px;">';
                             if (isset($_GET["search"])) {
-                                $dir = new DirectoryIterator("./store/items/");
+                                $dir = listFileNamesInDirectorySorted("./store/items/");
                                 $i = 0;
-                                foreach ($dir as $fileinfo) {
-                                    if (!$fileinfo->isDot()) {
-                                        $json = htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $fileinfo->getFilename()), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8");
-                                        $id = str_replace(".json", "", $fileinfo->getFilename());
-                                        $jsonStringSimplified = simplifyString($json);
-                                        $getParamStringSimplified = simplifyString($_GET["search"]);
-                                        if (strpos($jsonStringSimplified, $getParamStringSimplified) !== false || strpos($id, $getParamStringSimplified) !== false) {
+                                foreach ($dir as $filename) {
+                                    $json = htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $filename), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8");
+                                    $id = str_replace(".json", "", $filename);
+                                    $jsonStringSimplified = simplifyString($json);
+                                    $getParamStringSimplified = simplifyString($_GET["search"]);
+                                    if (strpos($jsonStringSimplified, $getParamStringSimplified) !== false || strpos($id, $getParamStringSimplified) !== false) {
+                                        if (!isMobile()) {
                                             if ($i % 2 == 0) {
                                                 $table = $table . '<tr>';
                                             }
-                                            $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></br></br></br></td>';
+                                            $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></br></td>';
                                             if ($i % 2 != 0) {
                                                 $table = $table . '</tr>';
                                             }
+                                            $i = $i + 1;
+                                        } else {
+                                            $table = $table . '<tr>';
+                                            $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></br></td>';
+                                            $table = $table . '</tr>';
                                             $i = $i + 1;
                                         }
                                     }
                                 }
                             } else {
-                                $dir = new DirectoryIterator("./store/items/");
+                                $dir = listFileNamesInDirectorySorted("./store/items/");
                                 $i = 0;
-                                foreach ($dir as $fileinfo) {
-                                    if (!$fileinfo->isDot()) {
-                                        $id = str_replace(".json", "", $fileinfo->getFilename());
+                                foreach ($dir as $filename) {
+                                    $id = str_replace(".json", "", $filename);
+                                    if (!isMobile()) {
                                         if ($i % 2 == 0) {
                                             $table = $table . '<tr>';
                                         }
-                                        $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></br></br></br></td>';
+                                        $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></td>';
                                         if ($i % 2 != 0) {
                                             $table = $table . '</tr>';
                                         }
+                                        $i = $i + 1;
+                                    } else {
+                                        $table = $table . '<tr>';
+                                        $table = $table . '<td>' . displayItemOnSearch($id) . '</br></br></br></td>';
+                                        $table = $table . '</tr>';
                                         $i = $i + 1;
                                     }
                                 }

@@ -1,9 +1,9 @@
 {
-	"name": "Lorem Ipsum",
-	"title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-	"description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-	"type": "Lorem",
-	"category": "Lorem/Ipsum",
-	"image": "7.png",
-	"price": 10
+	"name": "Rice",
+	"title": "40kg",
+	"description": "One of our main staples. Many of our chefs are absolute rice wizards and can make a perfect pan of rice for 200!",
+	"type": "Nourishments",
+	"category": "Nourishments/Cereal Grain",
+	"image": "5a.jpg",
+	"price": 41
 }

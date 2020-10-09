@@ -1,9 +1,9 @@
 {
-	"name": "Lorem Ipsum",
-	"title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-	"description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-	"type": "Lorem",
-	"category": "Lorem/Ipsum",
-	"image": "5.png",
-	"price": 10
+	"name": "Spices",
+	"title": "5kg",
+	"description": "Spice up our meals with an array of tasty flavours! Some people love chili, some people hate it, so we always have a jar on the counter to cater to all tastes.",
+	"type": "Spices",
+	"category": "Nourishments/Spices",
+	"image": "4a.jpg",
+	"price": 36
 }

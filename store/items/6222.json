@@ -1,0 +1,9 @@
+{
+	"name": "Bread",
+	"title": "For a Week",
+	"description": "Flat bread accompanies each of our meals. This will feed the whole cafe in bread for a whole week.",
+	"type": "Nourishments",
+	"category": "Nourishments/Staples",
+	"image": "6b.jpg",
+	"price": 91
+}

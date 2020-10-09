@@ -710,15 +710,15 @@
                     <tr>
                         <td valign="center" style="width: calc(100% - ' . $widthSubtraction . 'px);">
                             <a href="item.php?id=' . $id . '">
-                                <img src="store/img/' . $item['image'] . '" width="100%" style="display: inline-block;">
+                                <img src="store/img/' . $item['image'] . '" width="350px" style="display: inline-block; text-align: center;">
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td valign="top">
                             <a href="item.php?id=' . $id . '">
-                                <p class="large">' . $item['name'] . '</p>
-                                <small>' . $item['title'] . '</small></br></br>
+                                <span class="large">' . $item['name'] . '</span></br>
+                                <small>' . $item['title'] . '</small></br>
                                 Price: ' . getInCurrentCurrency(floatval($item['price'])) . '<span class="right"><small>ID: ' . $id . '</small></span>
                             </a>
                         </td>
@@ -743,7 +743,7 @@
                             <img style="float: right; padding-right: 50px; position: relative; height: 80%; width: 80%;" src="store/img/' . $item['image'] . '"></div>
                         </td>' . $insertNewRow . '
                         <td style="width: 50%; padding-left: 20px;">
-                            <h2>' . $newLines . $item['name'] . '</h2><br>
+                            <h2>' . $newLines . $item['name'] . '</h2>
                             <p class="large">' . $item['title'] . '</p>
                             <small>' . $item['description'] . '</small><br><br>
                             Type: ' . $item['type'] . '<br><br>
@@ -867,6 +867,18 @@
 		}
 		$input = strtolower($input);
 		return htmlspecialchars($input);
+	}
+	
+	function listFileNamesInDirectorySorted($directory) {
+		$fileNames = array();
+		$dir = new DirectoryIterator($directory);
+        foreach ($dir as $fileinfo) {
+            if (!$fileinfo->isDot()) {
+                $fileNames[] = $fileinfo->getFilename();
+            }
+        }
+        asort($fileNames);
+        return $fileNames;
 	}
     
     /*
