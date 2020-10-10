@@ -30,6 +30,11 @@ Put this content in there:
 &lt;?php $payPalCredentials = "AUdUWv_vtb5szg-sbLRGVrsXoFsbXoD-DXX3Gux19cNkCaJRhSzEeP23WrQ_5Bc1D3pXDhgkBrkFzraL:BG1RNEyXNdS8ZO_Qhy1L2Yy1lEq14gDtuV0rF-SLi21V9-dHh-4TLngqbOI9_kyEM4B5qQVx82Gc749s"; ?&gt;
 Replace "AUdUWv_vtb5szg-sbLRGVrsXoFsbXoD-DXX3Gux19cNkCaJRhSzEeP23WrQ_5Bc1D3pXDhgkBrkFzraL:BG1RNEyXNdS8ZO_Qhy1L2Yy1lEq14gDtuV0rF-SLi21V9-dHh-4TLngqbOI9_kyEM4B5qQVx82Gc749s" with valid PayPal API credentials for the account the donations in Pounds and the recurring donations shall go to.
 IMPORTANT: this is concatenated client_ID:secret for the OAuth2 process!
+### Stripe publishable key
+Place a new empty file with the name "stripePublishableKey.php" in that newly created "config" folder.
+Put this content in there:
+&lt;?php $payPalCredentials = "pk_live_51HXLdpLK5RaK7SdOTiqLySN29up36gVOvo9mrAv9PNJ8OEAd0I080MfCKQ60FePG376diujaVXP74ccMWbGjUSIH00tj8e5kRj"; ?&gt;
+Replace "pk_live_51HXLdpLK5RaK7SdOTiqLySN29up36gVOvo9mrAv9PNJ8OEAd0I080MfCKQ60FePG376diujaVXP74ccMWbGjUSIH00tj8e5kRj" with a valid Stripe publishable key.
 ### Data Folder
 Create a folder called "data" in the main project folder.
 Make sure it is writeable by the webserver program!
