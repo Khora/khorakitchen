@@ -5,5 +5,8 @@
 	"type": "Hygiene",
 	"category": "Housekeeping/Hygiene",
 	"image": "4b.jpg",
-	"price": 38
+	"price": 42,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

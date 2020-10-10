@@ -5,5 +5,8 @@
 	"type": "Meal",
 	"category": "Nourishments/Meals",
 	"image": "7a.jpg",
-	"price": 182
+	"price": 200,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

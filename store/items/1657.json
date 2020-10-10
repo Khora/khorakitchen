@@ -5,5 +5,11 @@
 	"type": "Hot Drink",
 	"category": "Nourishments/Drinks",
 	"image": "1b.jpg",
-	"price": 9
+	"price": 10,
+	"onceStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
+	"monthlyStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
+	"yearlyStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
+	"onceStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
+	"monthlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
+	"yearlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w"
 }

@@ -5,5 +5,8 @@
 	"type": "Miscellaneous",
 	"category": "Housekeeping/Miscellaneous",
 	"image": "7b.jpg",
-	"price": 218
+	"price": 240,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

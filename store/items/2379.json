@@ -5,5 +5,8 @@
 	"type": "Miscellaneous",
 	"category": "Nourishments/Miscellaneous",
 	"image": "2a.jpg",
-	"price": 10
+	"price": 11,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

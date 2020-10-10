@@ -5,5 +5,8 @@
 	"type": "Nourishments",
 	"category": "Nourishments/Vegetables",
 	"image": "3a.jpg",
-	"price": 16
+	"price": 18,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

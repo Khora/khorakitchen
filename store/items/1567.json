@@ -5,5 +5,11 @@
 	"type": "Hygiene",
 	"category": "Kitchen/Hygiene",
 	"image": "1a.jpg",
-	"price": 3.50
+	"price": 4,
+	"onceStripeIDEUR": "price_1HaK4VLO5RaK7SdORnMXVG2R",
+	"monthlyStripeIDEUR": "price_1HaK4VLO5RaK7SdORnMXVG2R",
+	"yearlyStripeIDEUR": "price_1HaK4VLO5RaK7SdORnMXVG2R",
+	"onceStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
+	"monthlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
+	"yearlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w"
 }

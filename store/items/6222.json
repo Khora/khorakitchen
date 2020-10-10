@@ -5,5 +5,8 @@
 	"type": "Nourishments",
 	"category": "Nourishments/Staples",
 	"image": "6b.jpg",
-	"price": 91
+	"price": 100,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

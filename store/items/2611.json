@@ -1,9 +1,12 @@
 {
 	"name": "Tahini",
 	"title": "5l",
-	"description": "A bucket of tahini. It is a very well loved ingredient and one of these doesn’t last us very long, used for houmous, dressings, falafel sauce and many other Mediteranean dishes.",
+	"description": "A bucket of tahini. It is a very well loved ingredient and one of these doesn't last us very long, used for houmous, dressings, falafel sauce and many other Mediteranean dishes.",
 	"type": "Sauce",
 	"category": "Nourishments/Sauces",
 	"image": "2b.jpg",
-	"price": 11
+	"price": 13,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

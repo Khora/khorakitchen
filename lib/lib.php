@@ -4,9 +4,12 @@
     include "config/emailForMessages.php";
     include "config/payPalCredentials.php";
     include "config/emailForPayPal.php";
+    include "config/stripePublishableKey.php";
 
-    // set max execution time to infinity
-    set_time_limit(0);
+    // enable html error reporting
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     
     // init session
     session_start();
@@ -30,7 +33,7 @@
         $_SESSION["mobile"] = $mobile;
         
         // the chosen currency of the client
-        $currency = "GBP";
+        $currency = "EUR";
         if (isset($_SESSION["currency"])) {
             $currency = $_SESSION["currency"];
         }
@@ -54,7 +57,7 @@
      * Getter for the currency of the client.
      */
     function getCurrency() {
-        $currentCurrency = "GBP";
+        $currentCurrency = "EUR";
         if (isset($_SESSION["currency"]) && strcmp($_SESSION["currency"], "") != 0) {
             $currentCurrency = $_SESSION["currency"];
         }
@@ -88,6 +91,13 @@
      * Gets the HTML head tag.
      */
     function getHtmlHead($title) {
+        return getHtmlHeadImpl($title, '');
+    }
+    
+    /*
+     * Gets the HTML head tag.
+     */
+    function getHtmlHeadImpl($title, $additionalJsImport) {
         if (!isMobile()) {
             return '<head>
                         <meta charset="utf-8"/>
@@ -104,6 +114,7 @@
                     </script>
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                    ' . $additionalJsImport . '
                 </head>';
         } else {
             return '<head>
@@ -115,6 +126,7 @@
                     <script language="javascript" type="text/javascript" src="lib/lib.js"></script>
                     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
                     <link rel="icon" type="image/x-icon" href="img/icon.png">
+                    ' . $additionalJsImport . '
                 </head>';
         }
     }
@@ -285,11 +297,11 @@
      */
     function getPageFooter() {
         if (!isMobile()) {
-            return '<div id="footerPartnersBackground">
+            return '<!--- <div id="footerPartnersBackground">
                         <div id="footer" style="color: #222222;">
                                 Partners:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum
                         </div>
-                    </div>
+                    </div> --->
                     <div id="footerBackground">
                         <div id="footer" style="color: #222222;">
                                 <a id="headerLink" href="privacy.php">PRIVACY and COOKIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -313,11 +325,11 @@
                         </div>
                     </div>';
         } else {
-            return '<div id="footerPartnersBackground">
+            return '<!--- <div id="footerPartnersBackground">
                         <div style="padding-left: 10px; padding-right: 10px;">
                             Partners:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum
                         </div>
-                    </div>
+                    </div> --->
                     <div id="footerAssociationBackground">
                         <div style="padding-left: 10px; padding-right: 10px;">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><br>
@@ -387,7 +399,7 @@
                     <div class="progressBar">
                         <div class="progressBarOrange"></div>
                     </div>
-                    &nbsp;' . getInCurrentCurrency($alreadyCollectedDonationAmount) . ' of ' . getInCurrentCurrency($targetDonationAmount) . '
+                    &nbsp;' . getInCurrentCurrency($alreadyCollectedDonationAmount, false) . ' of ' . getInCurrentCurrency($targetDonationAmount, false) . '
                 </a>
             </div>
         ';
@@ -540,9 +552,9 @@
                 
                 <script>
                     function currencySwitchClicked() {
-                        currency = "GBP";
-                        if (!currencyonoffswitch.checked) {
-                            currency = "EUR";
+                        currency = "EUR";
+                        if (currencyonoffswitch.checked) {
+                            currency = "GBP";
                         }
                         window.location.href = getCurrentServerAndPath() + getCurrentFileName() + "?currency=" + currency;
                     }
@@ -572,8 +584,7 @@
             $textToUse = 'Freedom of movement for all!';
         }
         if ($randomNumber == 5) {
-            $textToUse = 'Self-organised collective creative flexible non-dogmatic co-operative non-hierarchical consensus-based decision making!
-';
+            $textToUse = 'Self-organised collective creative flexible non-dogmatic co-operative non-hierarchical consensus-based decision making!';
         }
         
         return '<div id="topBanner">
@@ -696,7 +707,7 @@
                 </style>
         
                  <a class="imageLink" href="cart.php"><div class="cartContainer">
-                   <img src="img/cart.png">&nbsp;&nbsp;' . getCartText() . '</a>
+                   <img src="img/cart.png">&nbsp;&nbsp;' . getCartText(false) . '</a>
                 </div>';
     }
 
@@ -719,7 +730,7 @@
                             <a href="item.php?id=' . $id . '">
                                 <span class="large">' . $item['name'] . '</span></br>
                                 <small>' . $item['title'] . '</small></br>
-                                Price: ' . getInCurrentCurrency(floatval($item['price'])) . '<span class="right"><small>ID: ' . $id . '</small></span>
+                                Price: ' . getInCurrentCurrency(floatval($item['price']), true) . '<span class="right"><small>ID: ' . $id . '</small></span>
                             </a>
                         </td>
                     </tr>
@@ -748,7 +759,7 @@
                             <small>' . $item['description'] . '</small><br><br>
                             Type: ' . $item['type'] . '<br><br>
                             Category: ' . $item['category'] . '<br><br>
-                            Price: ' . getInCurrentCurrency(floatval($item['price'])) . '<br><br>
+                            Price: ' . getInCurrentCurrency(floatval($item['price']), true) . '<br><br>
                             <input type="submit" id="addToCartUp' . $id . '" class="addToCartTextInput" name="quantity" value="&#8593;" size="2"/>&nbsp;
                             <input type="text" id="addToCartTextInput' . $id . '" class="addToCartTextInput" name="quantity" value="' . $amount . '" size="2"/>&nbsp;
                             <input type="submit" id="addToCartDown' . $id . '" class="addToCartTextInput" name="quantity" value="&#8595;" size="2"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -818,7 +829,9 @@
                             </script>
 							</br></br>
                             
-							Price: ' . getInCurrentCurrency(floatval($item['price'])) . ' * ' . $amount . ' = ' . getInCurrentCurrencyValueOnly(floatval($item['price'])) * floatval($amount) . getCurrentCurrencySymbol() . '<span class="right"><small>ID: ' . $id . '</small></span>
+							Price: ' . getInCurrentCurrency(floatval($item['price']), true) . ' * ' . $amount . ' = ' . 
+							formatCurrencyValue(floatval(getInCurrentCurrencyValueOnly(floatval($item['price']), true, false)) * floatval($amount), true, true)
+							 . getCurrentCurrencySymbol() . '<span class="right"><small>ID: ' . $id . '</small></span>
 						</td>
 					</tr>
 				</table>
@@ -837,12 +850,12 @@
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
 			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
-			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price'])) * $value;
+			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price']), true, false) * $value;
 		}
 		return $priceTotal;
 	}
 
-	function getCartText() {
+	function getCartText($showAfterFloatingPoint) {
 		$retValue = 'CART&nbsp;';
         if (isset($_SESSION['cart'])) {
             $i = 0;
@@ -851,14 +864,35 @@
             }
             if ($i > 0) {
                 if ($i == 1) {
-                    $retValue = getCurrentPriceOfCart() . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
+                    $retValue = formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true) . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
                 } else {
-                    $retValue = getCurrentPriceOfCart() . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
+                    $retValue = formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true) . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
                 }
             }
         }
 		return $retValue;
 	}
+	
+	function getValueOfItem($id, $key) {
+	    $item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+        return $item[$key];
+    }
+	
+	function getStripeItemsString($recurring) {
+	    $retStr = '[';
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $amount = $value;
+            $id = str_replace("id", "", $key);
+            $stripeItemId = getValueOfItem($id, $recurring);
+            if ($retStr != '[') {
+                $retStr .= ', ';
+            }
+            $retStr .= '{ price: \'' . $stripeItemId . '\', quantity: ' . $amount . ' }';
+        }
+        $retStr .= ']';
+        return $retStr;
+                            
+    }
 	
 	function simplifyString($input) {
 		$chars = array("-", ".", "=", "_", "/", ":", "{", "}", "\"", "'");
@@ -915,18 +949,31 @@
         return $protocol;
     }
     
-    function getInCurrentCurrency($value) {
+    function getInCurrentCurrency($value, $showAfterFloatingPoint) {
         if (strcmp(getCurrency(), "EUR") == 0) {
-            return getPoundsToEuros($value) . "&euro;";
+            return formatCurrencyValue($value, $showAfterFloatingPoint, true) . "&euro;";
         }
-        return $value . "&pound;";
+        return formatCurrencyValue(getPoundsToEuros($value), $showAfterFloatingPoint, true) . "&pound;";
     }
     
-    function getInCurrentCurrencyValueOnly($value) {
+    function getInCurrentCurrencyValueOnly($value, $showAfterFloatingPoint, $convertFloatingPointSymbol) {
         if (strcmp(getCurrency(), "EUR") == 0) {
-            return getPoundsToEuros($value);
+            return formatCurrencyValue($value, $showAfterFloatingPoint, $convertFloatingPointSymbol);
         }
-        return $value;
+        return formatCurrencyValue(getPoundsToEuros($value), $showAfterFloatingPoint, $convertFloatingPointSymbol);
+    }
+    
+    function formatCurrencyValue($value, $showAfterFloatingPoint, $convertFloatingPointSymbol) {
+        $retVal = number_format($value, 0);
+        if ($showAfterFloatingPoint) {
+            $retVal = number_format($value, 2);
+        }
+        if (strcmp(getCurrency(), "EUR") == 0 && $convertFloatingPointSymbol) {
+            $retVal = str_replace(".", "§", $retVal); 
+            $retVal = str_replace(",", ".", $retVal); 
+            $retVal = str_replace("§", ",", $retVal); 
+        }
+        return $retVal;
     }
     
     function getCurrentCurrencySymbol() {
@@ -937,7 +984,7 @@
     }
     
     function getPoundsToEuros($value) {
-        return round(floatval(getPoundsToEurosExchangeCourse() * $value), 2);
+        return round(floatval($value / getPoundsToEurosExchangeCourse()), 1);
     }
     
     function getPoundsToEurosExchangeCourse() {
@@ -1027,6 +1074,11 @@
     function getEmailForMessages() {
         global $emailForMessages;
         return $emailForMessages;
+    }
+    
+    function getStripePublishableKey() {
+        global $stripePublishableKey;
+        return $stripePublishableKey;
     }
     
     function getPayPalOAuthBearer() {

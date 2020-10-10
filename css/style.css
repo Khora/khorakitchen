@@ -27,6 +27,13 @@ h3 {
 	color: #714900;
 }
 
+h4 {
+	font-size: 17px;
+    line-height: 20px;
+    margin-bottom: 33px;
+	color: #714900;
+}
+
 a {
 	color: black;
     text-decoration: none;
@@ -497,8 +504,8 @@ a:hover {
 	-moz-transition: 0.2s;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
-    margin: 20px;
-    padding: 40px;
+    margin: 10px;
+    padding: 10px 10px 1px 20px;
 	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	-moz-border-radius: 5px;
@@ -506,4 +513,18 @@ a:hover {
 	background: #ffffbf;
 	opacity: 0.6;
 	cursor: pointer;
+}
+
+.infoDiv {
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	background: #ffffbf;
+	opacity: 0.6;
+	cursor: pointer;
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+	opacity: 1;
+	cursor: default;
 }

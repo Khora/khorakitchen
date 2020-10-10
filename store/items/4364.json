@@ -5,5 +5,8 @@
 	"type": "Spices",
 	"category": "Nourishments/Spices",
 	"image": "4a.jpg",
-	"price": 36
+	"price": 40,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }

@@ -5,5 +5,8 @@
 	"type": "Nourishments",
 	"category": "Nourishments/Soups",
 	"image": "6a.jpg",
-	"price": 55
+	"price": 61,
+	"onceStripeID": "",
+	"monthlyStripeID": "",
+	"yearlyStripeID": ""
 }
