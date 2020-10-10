@@ -799,7 +799,7 @@
 				<table width="100%">
 					<tr>
 						<td valign="center" width="350px">
-                            <img style="display: inline-block; padding-right: 50px; height: 80%; width: 80%;" src="store/img/' . $item['image'] . '"></div>
+                            <img style="display: inline-block; padding-right: 50px; width: 80%;" src="store/img/' . $item['image'] . '"></div>
                         </td>' . $insertNewRow . '
 						<td valign="top">
 							<a class="large">' . $item['title'] . '</a><br><br>
@@ -851,6 +851,16 @@
 			$idParsed = parseId($key);
 			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
 			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price']), true, false) * $value;
+		}
+		return $priceTotal;
+	}
+
+	function getCurrentPriceOfCartEur() {
+		$priceTotal = 0;
+		foreach ($_SESSION['cart'] as $key => $value) {
+			$idParsed = parseId($key);
+			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+			$priceTotal = $priceTotal + floatval($item['price']) * $value;
 		}
 		return $priceTotal;
 	}

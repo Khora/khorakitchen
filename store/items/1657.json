@@ -6,10 +6,7 @@
 	"category": "Nourishments/Drinks",
 	"image": "1b.jpg",
 	"price": 10,
-	"onceStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
-	"monthlyStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
-	"yearlyStripeIDEUR": "price_1HaK4oLO5RaK7SdOnPVZtb33",
-	"onceStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
-	"monthlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w",
-	"yearlyStripeIDGBP": "price_1HaK47LO5RaK7SdObu5dBh1w"
+	"onceStripeID": "price_1Hage4LO5RaK7SdOmYY9S8lY",
+	"monthlyStripeID": "price_1Hage3LO5RaK7SdOHQzAKUaX",
+	"yearlyStripeID": "price_1Hage3LO5RaK7SdOb3AFhvfF"
 }

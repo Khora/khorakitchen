@@ -147,34 +147,42 @@
                         </br>
                         
                         <?php
+                            $mobileBr = '';
+                            if (isMobile()) {
+                                $mobileBr = '<br><br>';
+                            }
                             $khoraBusinessAddress = getEmailForPayPal();
                             $message = 'Thank you for your kindness and generosity. Without people like you we would not be able to run the kitchen.';
                             $currency = getCurrentCurrencySymbol();
                             $currencyString = getCurrency();
+                            $eurPrice = '';
+                            $eurNote = '';
+                            if ($currencyString == 'GBP') {
+                                $eurPrice = ' = ' . formatCurrencyValue(getCurrentPriceOfCartEur(), true, false) . '&euro;';
+                                $eurNote = '<b>Note:</b> the currency of all items in our Stripe account is EUR. All prices will be translated to EUR before proceeding to Stripe.<br>';
+                            }
                             $amount = formatCurrencyValue(getCurrentPriceOfCart(), true, true);
                             $amountFloat = getCurrentPriceOfCart();
                             $stripeMode = 'payment';
-                            $stripeItemsNotRecurring = getStripeItemsString('onceStripeID' . $currencyString);
-                            $stripeItemsMonthly = getStripeItemsString('monthlyStripeID' . $currencyString);
-                            $stripeItemsYearly = getStripeItemsString('yearlyStripeID' . $currencyString);
+                            $stripeItemsNotRecurring = getStripeItemsString('onceStripeID');
+                            $stripeItemsMonthly = getStripeItemsString('monthlyStripeID');
+                            $stripeItemsYearly = getStripeItemsString('yearlyStripeID');
                             $stripeItems = '{not: ' . $stripeItemsNotRecurring . ', monthly: ' . $stripeItemsMonthly . ', yearly: ' . $stripeItemsYearly . '}';
                             $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
                             $host = $_SERVER['HTTP_HOST'];
                             $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/') + 1);
                             $currentDomain = $protocol . $host . $pathOnHost;
                             $stripeKey = getStripePublishableKey();
-                            echo '<br><br>';
-                            var_dump($stripeItems);
-                            echo '<br><br>';
                             if ($radioId == 1) {
                                 echo '<div class="horizontalCenteredBase">
                                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
                                         <div id="stripe-error-message"></div>
-                                        To donate the amount of <b><u>' . $amount . " " . $currency .'</u></b> to the Khora Community Kitchen, please click the button below to proceed to Stripe.<br>
+                                        To donate the amount of <b><u>' . $amount . " " . $currency . $eurPrice . '</u></b> to the Khora Community Kitchen, please click the button below to proceed to Stripe.<br><br>
+                                        ' . $eurNote . '
                                         <div class="infoDiv">
                                             <nobr>
-                                                <input id="notRecurring" type="radio" name="recurringSelection" checked>&nbsp;&nbsp;not recurring&nbsp;&nbsp;
-                                                <input id="monthlyRecurring" type="radio" name="recurringSelection">&nbsp;&nbsp;donate monthly&nbsp;&nbsp;
+                                                <input id="notRecurring" type="radio" name="recurringSelection" checked>&nbsp;&nbsp;not recurring&nbsp;&nbsp;' . $mobileBr . '
+                                                <input id="monthlyRecurring" type="radio" name="recurringSelection">&nbsp;&nbsp;donate monthly&nbsp;&nbsp;' . $mobileBr . '
                                                 <input id="yearlyRecurring" type="radio" name="recurringSelection">&nbsp;&nbsp;yearly
                                             </nobr>
                                         </div>
