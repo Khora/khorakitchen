@@ -22,8 +22,9 @@ Replace "email-address@test.com" with an E-Mail address linked to the PayPal acc
 ### E-Mail Address to which the Messages shall go
 Place a new empty file with the name "emailForMessages.php" in that newly created "config" folder.
 Put this content in there:
-&lt;?php $emailForMessages = "email-address2@test.com"; ?&gt;
-Replace "email-address2@test.com" with an E-Mail to which the messages on the "Thank You" page shall be sent to.
+&lt;?php $emailForMessagesSender = "email-address-sender@test.com"; $emailForMessagesTo = "email-address-to@test.com"; ?&gt;
+Replace "email-address-sender@test.com" with an E-Mail from which the messages shall be sent. This has to be a valid address that the webserver allows sending from!
+Replace "email-address-to@test.com" with an E-Mail to which the messages on the "Thank You" page shall be sent to.
 ### PayPal credentials
 Place a new empty file with the name "payPalCredentials.php" in that newly created "config" folder.
 Put this content in there:

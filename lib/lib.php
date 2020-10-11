@@ -1081,9 +1081,14 @@
         return $emailForPayPal;
     }
     
-    function getEmailForMessages() {
-        global $emailForMessages;
-        return $emailForMessages;
+    function getEmailForMessagesSender() {
+        global $emailForMessagesSender;
+        return $emailForMessagesSender;
+    }
+    
+    function getEmailForMessagesTo() {
+        global $emailForMessagesTo;
+        return $emailForMessagesTo;
     }
     
     function getStripePublishableKey() {

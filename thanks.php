@@ -20,19 +20,22 @@
                 echo getPageHeader("THANK YOU");
                 
                 if (isset($_GET['message'])) {
-                    $sender = getEmailForMessages();
-                    $to = getEmailForMessages();
+                    $sender = getEmailForMessagesSender();
+					$to = getEmailForMessagesTo();
                     $subject = "A message by a donor via the madebykhora system";
-                    $message = "Please put this message up in the kitchen:\r\n\r\n-----------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
-                    $header = join("\r\n", array(
-                       'From: '.$sender,
-                       'Reply-To: '.$sender,
-                       'Return-Path: '.$sender, 
-                       'X-Mailer: PHP',
-                       'Content-type: text/plain; charset=utf-8'
-                    ));
-                    $messageToSend = html_entity_decode(utf8_decode($message));
-                    mail($to, $subject, $messageToSend, $header, '-f '.$sender);
+					$message = "Please put this message up in the kitchen:\r\n\r\n-----------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
+
+					$header = join("\r\n", array(
+					   'From: '.$sender,
+					   'Reply-To: '.$sender,
+					   'Return-Path: '.$sender, 
+					   'X-Mailer: PHP',
+					   'Content-type: text/plain; charset=utf-8'
+					));
+
+					$messageToSend = html_entity_decode(utf8_decode($message));
+
+					mail($to, $subject, $messageToSend, $header, '-f '.$sender);
                 }
             ?>
             <div id="content">
