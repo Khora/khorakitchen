@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        echo getHtmlHead("STORE | madebykhora");
+        echo getHtmlHead("STORE | Khora Kitchen");
     ?>
 
 	<body>

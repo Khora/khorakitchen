@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        echo getHtmlHeadImpl("CHECKOUT | madebykhora", '<script src="https://js.stripe.com/v3/"></script>');
+        echo getHtmlHeadImpl("CHECKOUT | Khora Kitchen", '<script src="https://js.stripe.com/v3/"></script>');
     ?>
 
 	<body>

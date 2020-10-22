@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        echo getHtmlHead("TERMS and CONDITIONS | madebykhora");
+        echo getHtmlHead("TERMS and CONDITIONS | Khora Kitchen");
     ?>
 
 	<body>

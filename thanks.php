@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        echo getHtmlHead("THANK YOU | madebykhora");
+        echo getHtmlHead("THANK YOU | Khora Kitchen");
     ?>
 
 	<body>
@@ -22,7 +22,7 @@
                 if (isset($_GET['message'])) {
                     $sender = getEmailForMessagesSender();
 					$to = getEmailForMessagesTo();
-                    $subject = "A message by a donor via the madebykhora system";
+                    $subject = "A message by a donor via the Khora Kitchen system";
 					$message = "Please put this message up in the kitchen:\r\n\r\n-----------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
 
 					$header = join("\r\n", array(
