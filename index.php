@@ -87,7 +87,7 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        We believe that all our funding should go straight to the table. Therefore, all our chefs, co-ordinators and front of house staff are volunteers. We organise using non-hierarchichal consensus based decision making and strive towards equality within our spaces. If you would like to volunteer, find out more <a href="http://www.khora-athens.org/joinus" style="text-decoration: underline;">here</a>.
+                        We believe that all our funding should go straight to the table. Therefore, all our chefs, co-ordinators and front of house staff are volunteers. We organise using non-hierarchichal consensus based decision making and strive towards equality within our spaces. If you would like to volunteer, find out more <a href="http://www.khora-athens.org/" style="text-decoration: underline;">here</a>.
                     </div>
                 </div>
                 
