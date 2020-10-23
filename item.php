@@ -22,7 +22,7 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        <center><a href="store.php" class="bigButton">&lt; BACK</a></center><br><br>
+                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">&lt; BACK</a></center><br><br>
                         <?php
                             $amount = 1;
                             if (isset($_GET['id'])) {

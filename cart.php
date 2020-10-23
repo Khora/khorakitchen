@@ -52,7 +52,7 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        <center><br><br><a href="store.php" class="bigButton">&lt; BACK</a>
+                        <center><br><br><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">&lt; BACK</a>
                         <?php
                             if (isMobile()) {
                                 echo '<br><br>';
@@ -60,7 +60,7 @@
                                 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             }
                         ?>
-                        <a href="checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>
+                        <a href="<?php echo getFullDomainName(); ?>checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>
                         <center><h1>SHOPPING CART</h1></center>
                         <?php
                             if (isset($_SESSION['cart'])) {
@@ -81,7 +81,7 @@
                                     if (isMobile()) {
                                         $insert = '<br><br>';
                                     }
-                                    echo '<center><a href="store.php" class="bigButton">&lt; BACK</a>' . $insert . '<a href="checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>';
+                                    echo '<center><a href="' . getFullDomainName() . 'store.php" class="bigButton">&lt; BACK</a>' . $insert . '<a href="' . getFullDomainName() . 'checkout.php" class="bigButton">CHECKOUT &gt;</a></center><br><br>';
                                 }
                             }
                         ?>

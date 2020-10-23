@@ -36,7 +36,7 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
-                        <a href="store.php" class="bigButton">GO TO STORE</a>
+                        <a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a>
                     </div>
                 </div>
                 
@@ -95,7 +95,7 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
-                        <a href="store.php" class="bigButton">GO TO STORE</a>
+                        <a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a>
                     </div>
                 </div>
                 

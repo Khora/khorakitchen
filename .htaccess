@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://khorakitchen.org/$1 [L,R=301]
+
+DirectoryIndex index.php

@@ -34,7 +34,7 @@
                         
                         [graphic: pret lunch vs lunch here]<br><br><br><br>
                         
-                        <center><a href="store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
+                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
                         
                         Life in Athens for refugees and other vulnerable communities can be extremely difficult: negotiating the asylum claim system, finding housing, and caring for children are just some of the challenges people can face. Trying to find regular meals can make dealing with these needs feel like a constant fight just to survive. Furthermore, many displaced people arriving in Athens have experienced horrific food distribution lines in refugee camps on the islands, with people reporting spending up to 12 hours a day queueing for food that is sometimes moldy [source].<br><br><br><br>
                         
@@ -46,7 +46,7 @@
                         
                         Everytime you buy an item in our store you are helping provide this alternative food provision service. Coupled with our ‘Free Shop’, Khora is dedicated to providing refugees and others in need with their basic needs in a dignified and normal way.<br><br><br><br>
                         
-                        <center><a href="store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
+                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
                     </div>
                 </div>
             </div>

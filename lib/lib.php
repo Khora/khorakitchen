@@ -12,6 +12,7 @@
     error_reporting(E_ALL);
     
     // init session
+    session_save_path("sessions");
     session_start();
     initSessionVariables();
 
@@ -146,13 +147,13 @@
                     </script>
                     
                     <div id="header">
-                        <a id="headerLink" href="index.php">
+                        <a id="headerLink" href="' . getFullDomainName() . 'index.php">
                             <div id="logo"></div>
                         </a>
                         <div id="headerText">
-                            <a id="headerLink" href="index.php">ABOUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="headerLink" href="store.php">STORE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="headerLink" href="campaign.php">CAMPAIGN</a>
+                            <a id="headerLink" href="' . getFullDomainName() . 'index.php">ABOUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a id="headerLink" href="' . getFullDomainName() . 'store.php">STORE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a id="headerLink" href="' . getFullDomainName() . 'campaign.php">CAMPAIGN</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -177,7 +178,7 @@
             return '<div id="mobileMenuBackground">
                 </div>
                 <div id="mobileLogo">
-                    <a href="index.php"><img src="img/logo_small.png" style="width: 9mm; height: 8mm;"></a>
+                    <a href="' . getFullDomainName() . 'index.php"><img src="img/logo_small.png" style="width: 9mm; height: 8mm;"></a>
                 </div>
                 <div id="mobileTitle">
                     ' . $title . '
@@ -203,32 +204,32 @@
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="index.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;ABOUT</span></a>
+                            <a href="' . getFullDomainName() . 'index.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;ABOUT</span></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="store.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;STORE</span></a>
+                            <a href="' . getFullDomainName() . 'store.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;STORE</span></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="campaign.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CAMPAIGN</span></a>
+                            <a href="' . getFullDomainName() . 'campaign.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CAMPAIGN</span></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="privacy.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;PRIVACY and COOKIES</span></a>
+                            <a href="' . getFullDomainName() . 'privacy.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;PRIVACY and COOKIES</span></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="terms.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;TERMS and CONDITIONS</span></a>
+                            <a href="' . getFullDomainName() . 'terms.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;TERMS and CONDITIONS</span></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="contact.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CONTACT and FAQ</span></a>
+                            <a href="' . getFullDomainName() . 'contact.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CONTACT and FAQ</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -304,15 +305,15 @@
                     </div> --->
                     <div id="footerBackground">
                         <div id="footer" style="color: #222222;">
-                                <a id="headerLink" href="privacy.php">PRIVACY and COOKIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a id="headerLink" href="terms.php">TERMS and CONDITIONS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="headerLink" href="' . getFullDomainName() . 'privacy.php">PRIVACY and COOKIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="headerLink" href="' . getFullDomainName() . 'terms.php">TERMS and CONDITIONS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a id="headerLink" href="contact.php">CONTACT and FAQ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="headerLink" href="' . getFullDomainName() . 'contact.php">CONTACT and FAQ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &copy; Khora, ' . date("Y") . '. All rights reserved.
                                 <a href="http://www.khora-athens.org/"><div id="webpage"></div></a>
                                 <a href="https://www.facebook.com/KhoraAthens/"><div id="facebook"></div></a>
@@ -394,7 +395,7 @@
                 </style>
         
             <div class="progressBarContainer">
-                <a href="campaign.php" style="cursor: pointer;">
+                <a href="' . getFullDomainName() . 'campaign.php" style="cursor: pointer;">
                     &nbsp;CAMPAIGN:
                     <div class="progressBar">
                         <div class="progressBarOrange"></div>
@@ -706,7 +707,7 @@
                     }
                 </style>
         
-                 <a class="imageLink" href="cart.php"><div class="cartContainer">
+                 <a class="imageLink" href="' . getFullDomainName() . 'cart.php"><div class="cartContainer">
                    <img src="img/cart.png">&nbsp;&nbsp;' . getCartText(false) . '</a>
                 </div>';
     }
@@ -720,14 +721,14 @@
 		return '<table style="width: calc(100% - ' . $widthSubtraction . 'px);">
                     <tr>
                         <td valign="center" style="width: calc(100% - ' . $widthSubtraction . 'px);">
-                            <a href="item.php?id=' . $id . '">
+                            <a href="' . getFullDomainName() . 'item.php?id=' . $id . '">
                                 <img src="store/img/' . $item['image'] . '" width="350px" style="display: inline-block; text-align: center;">
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td valign="top">
-                            <a href="item.php?id=' . $id . '">
+                            <a href="' . getFullDomainName() . 'item.php?id=' . $id . '">
                                 <span class="large">' . $item['name'] . '</span></br>
                                 <small>' . $item['title'] . '</small></br>
                                 Price: ' . getInCurrentCurrency(floatval($item['price']), true) . '<span class="right"><small>ID: ' . $id . '</small></span>
@@ -763,21 +764,21 @@
                             <input type="submit" id="addToCartUp' . $id . '" class="addToCartTextInput" name="quantity" value="&#8593;" size="2"/>&nbsp;
                             <input type="text" id="addToCartTextInput' . $id . '" class="addToCartTextInput" name="quantity" value="' . $amount . '" size="2"/>&nbsp;
                             <input type="submit" id="addToCartDown' . $id . '" class="addToCartTextInput" name="quantity" value="&#8595;" size="2"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="addToCartBtn' . $id . '" href="cart.php?item=' . $id . '-' . $amount . '" class="addToCart">ADD TO CART</a>
+                            <a id="addToCartBtn' . $id . '" href="' . getFullDomainName() . 'cart.php?item=' . $id . '-' . $amount . '" class="addToCart">ADD TO CART</a>
                             <script>
                                 document.getElementById("addToCartUp' . $id . '").onclick = function() {
                                     document.getElementById("addToCartTextInput' . $id . '").value = parseInt(document.getElementById("addToCartTextInput' . $id . '").value) + 1;
-                                    document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                    document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                 };
                                 document.getElementById("addToCartDown' . $id . '").onclick = function() {
                                     if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
                                         document.getElementById("addToCartTextInput' . $id . '").value = document.getElementById("addToCartTextInput' . $id . '").value - 1;
-                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                        document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
                                 document.getElementById("addToCartTextInput' . $id . '").onkeyup = function() {
                                     if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
-                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                        document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
                             </script>
@@ -808,22 +809,22 @@
                             <input type="submit" id="addToCartUp' . $id . '" class="addToCartTextInput" name="quantity" value="&#8593;" size="2"/>&nbsp;
                             <input type="text" id="addToCartTextInput' . $id . '" class="addToCartTextInput" name="quantity" value="' . $amount . '" size="2"/>&nbsp;
                             <input type="submit" id="addToCartDown' . $id . '" class="addToCartTextInput" name="quantity" value="&#8595;" size="2"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="addToCartBtn' . $id . '" href="cart.php?item=' . $id . '-' . $amount . '" class="addToCart">UPDATE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="deleteFromCart' . $id . '" href="cart.php?item=' . $id . '-0" class="addToCart">X</a>
+                            <a id="addToCartBtn' . $id . '" href="' . getFullDomainName() . 'cart.php?item=' . $id . '-' . $amount . '" class="addToCart">UPDATE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a id="deleteFromCart' . $id . '" href="' . getFullDomainName() . 'cart.php?item=' . $id . '-0" class="addToCart">X</a>
                             <script>
                                 document.getElementById("addToCartUp' . $id . '").onclick = function() {
                                     document.getElementById("addToCartTextInput' . $id . '").value = parseInt(document.getElementById("addToCartTextInput' . $id . '").value) + 1;
-                                    document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                    document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                 };
                                 document.getElementById("addToCartDown' . $id . '").onclick = function() {
                                     if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
                                         document.getElementById("addToCartTextInput' . $id . '").value = document.getElementById("addToCartTextInput' . $id . '").value - 1;
-                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                        document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
                                 document.getElementById("addToCartTextInput' . $id . '").onkeyup = function() {
                                     if (document.getElementById("addToCartTextInput' . $id . '").value > 0) {
-                                        document.getElementById("addToCartBtn' . $id . '").href = "cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
+                                        document.getElementById("addToCartBtn' . $id . '").href = "' . getFullDomainName() . 'cart.php?item=' . $id . '-" + document.getElementById("addToCartTextInput' . $id . '").value;
                                     }
                                 };
                             </script>
@@ -955,8 +956,7 @@
             $isSecure = true;
         }
         $protocol = $isSecure ? 'https' : 'http';
-        
-        return $protocol;
+        return $protocol . '://';
     }
     
     function getInCurrentCurrency($value, $showAfterFloatingPoint) {
@@ -1096,6 +1096,13 @@
         return $stripePublishableKey;
     }
     
+    function getFullDomainName() {
+        $protocol = getProtocolName();
+        $host = $_SERVER['HTTP_HOST'];
+        $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/'));
+        return "$protocol$host$pathOnHost" . '/';
+    }
+    
     function getPayPalOAuthBearer() {
         global $payPalCredentials;
         $c = curl_init();
@@ -1119,7 +1126,7 @@
     }
     
     function makePayPalPaymentAndReturnUrlToAuthorize($amount, $currency, $description, $name, $line1, $line2, $city, $countryCode, $postalCode, $phone, $state) {
-        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $protocol = getProtocolName();
         $host = $_SERVER['HTTP_HOST'];
         $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/') + 1);
         
@@ -1183,7 +1190,7 @@
     }
     
     function makePayPalRecurringPaymentAndReturnUrlToAuthorize($amount, $currency, $description, $name, $line1, $line2, $city, $countryCode, $postalCode, $phone, $state, $recurring) {
-        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $protocol = getProtocolName();
         $host = $_SERVER['HTTP_HOST'];
         $pathOnHost = substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], '/') + 1);
         
