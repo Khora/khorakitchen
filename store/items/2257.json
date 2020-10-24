@@ -4,9 +4,9 @@
 	"description": "Everybody loves a nice (sugary) hot cup of tea! Everything we need for hundreds of cups of tea - tea leaves, sugar and electricity, plus some spices for those that like them!",
 	"type": "Hot Drink",
 	"category": "Nourishments/Drinks",
-	"image": "1b.jpg",
+	"image": "2a.jpg",
 	"price": 10,
-	"onceStripeID": "price_1Hage4LO5RaK7SdOmYY9S8lY",
-	"monthlyStripeID": "price_1Hage3LO5RaK7SdOHQzAKUaX",
-	"yearlyStripeID": "price_1Hage3LO5RaK7SdOb3AFhvfF"
+	"onceStripeID": "price_1HfjXoLO5RaK7SdOsXR3xa4X",
+	"monthlyStripeID": "price_1HfjXoLO5RaK7SdOH7peniCJ",
+	"yearlyStripeID": "price_1HfjXoLO5RaK7SdOaIeOXepN"
 }

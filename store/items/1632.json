@@ -4,9 +4,9 @@
 	"description": "An essential ingredient in many of our meals, we get through 3 of these sacks every week - peeled, mashed, boiled and fried.",
 	"type": "Staples",
 	"category": "Nourishments/Staples",
-	"image": "3b.jpg",
-	"price": 18,
-	"onceStripeID": "",
-	"monthlyStripeID": "",
-	"yearlyStripeID": ""
+	"image": "1b.jpg",
+	"price": 5,
+	"onceStripeID": "price_1HfjWRLO5RaK7SdOKhbKYLoH",
+	"monthlyStripeID": "price_1HfjWRLO5RaK7SdOhaIZ4jWb",
+	"yearlyStripeID": "price_1HfjWRLO5RaK7SdOVqNLndjr"
 }

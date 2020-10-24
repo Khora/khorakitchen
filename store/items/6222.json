@@ -6,7 +6,7 @@
 	"category": "Nourishments/Staples",
 	"image": "6b.jpg",
 	"price": 100,
-	"onceStripeID": "",
-	"monthlyStripeID": "",
-	"yearlyStripeID": ""
+	"onceStripeID": "price_1HfjV9LO5RaK7SdOSowFqjmg",
+	"monthlyStripeID": "price_1HfjV9LO5RaK7SdOkuM5xhIm",
+	"yearlyStripeID": "price_1HfjV9LO5RaK7SdO7dWBsaop"
 }

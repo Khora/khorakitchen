@@ -1,12 +1,12 @@
 {
 	"name": "Vegetables",
-	"title": "15kg",
+	"title": "20kg",
 	"description": "These are the vegetables that we use on a daily basis, bought from our friendly local wholesale shop, delivered with smiles (and sometimes free strawberries) 3 times a week.",
 	"type": "Nourishments",
 	"category": "Nourishments/Vegetables",
-	"image": "3a.jpg",
-	"price": 18,
-	"onceStripeID": "",
-	"monthlyStripeID": "",
-	"yearlyStripeID": ""
+	"image": "3b.jpg",
+	"price": 15,
+	"onceStripeID": "price_1HfjXaLO5RaK7SdO5vUcrVPz",
+	"monthlyStripeID": "price_1HfjXaLO5RaK7SdOi2wQBJwF",
+	"yearlyStripeID": "price_1HfjXaLO5RaK7SdOsQwFBlWc"
 }

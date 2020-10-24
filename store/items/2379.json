@@ -4,9 +4,9 @@
 	"description": "A lovely big bottle of local Greek olive oil for dressing our daily delicious salads.",
 	"type": "Miscellaneous",
 	"category": "Nourishments/Miscellaneous",
-	"image": "2a.jpg",
+	"image": "2b.jpg",
 	"price": 11,
-	"onceStripeID": "",
-	"monthlyStripeID": "",
-	"yearlyStripeID": ""
+	"onceStripeID": "price_1HfjXhLO5RaK7SdOZfwOl5EK",
+	"monthlyStripeID": "price_1HfjXhLO5RaK7SdOn8nihFUp",
+	"yearlyStripeID": "price_1HfjXhLO5RaK7SdObgJX9aFH"
 }

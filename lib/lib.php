@@ -15,6 +15,16 @@
     session_save_path("sessions");
     session_start();
     initSessionVariables();
+    $gc_time = 'sessions/php_session_last_gc.txt';
+    $gc_period = 2 * 24 * 60 * 60;
+    if (file_exists($gc_time)) {
+        if (filemtime($gc_time) < time() - $gc_period) {
+            session_gc();
+            touch($gc_time);
+        }
+    } else {
+        touch($gc_time);
+    }
 
     /*
      * Initialisation method, to be called first.

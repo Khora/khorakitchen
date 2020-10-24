@@ -21,9 +21,9 @@
                 
                 if (isset($_GET['message'])) {
                     $sender = getEmailForMessagesSender();
-					$to = getEmailForMessagesTo();
+					$tos = getEmailForMessagesTo();
                     $subject = "A message by a donor via the Khora Kitchen system";
-					$message = "Please put this message up in the kitchen:\r\n\r\n-----------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
+					$message = "Dear Khora Kitchen Krew,\r\n\r\na donor has sent a message after donating to us via the Khora Kitchen system.\r\nPlease put this message up in the kitchen for everyone to read:\r\n\r\n-----------------------------------------------------------------\r\n\r\n" . htmlspecialchars($_GET['message']);
 
 					$header = join("\r\n", array(
 					   'From: '.$sender,
@@ -34,8 +34,15 @@
 					));
 
 					$messageToSend = html_entity_decode(utf8_decode($message));
-
-					mail($to, $subject, $messageToSend, $header, '-f '.$sender);
+					
+					$retval = true;
+					for ($i = 0; $i < count($tos); $i++) {
+						$retval &= mail($tos[$i], $subject, $messageToSend, $header, '-f '.$sender);
+					}
+                    $info = '<p style="background-color: red;">Error: Message could not be send, PHP mail() did not return true!</p>';
+                    if ($retval == true) {
+                        $info = '';
+                    }
                 }
             ?>
             <div id="content">
@@ -79,7 +86,11 @@
                                             <a class="bigButton" onclick="sendMessage();">SEND</a>
                                         </center>';
                             } else {
-                                echo '<h3>Thank you for your message!<br><br>We will stick this up in the kitchen for guests to read while they eat!<h3><br><br><br><br>';
+                                if ($info == '') {
+                                    echo '<h3>Thank you for your message!<br><br>We will stick this up in the kitchen for guests to read while they eat!<h3><br><br><br><br>';
+                                } else {
+                                    echo $info;
+                                }
                             }
                         ?>
                         
