@@ -727,7 +727,7 @@
         if (isMobile()) {
             $widthSubtraction = 0;
         }
-		$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+		$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), TRUE);
 		return '<table style="width: calc(100% - ' . $widthSubtraction . 'px);">
                     <tr>
                         <td valign="center" style="width: calc(100% - ' . $widthSubtraction . 'px);">
@@ -749,7 +749,7 @@
 	}
 	
 	function displayItemOnSinglePresentation($id, $amount) {
-		$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+		$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), TRUE);
         
         $insertNewRow = '';
         $newLines = '';
@@ -799,7 +799,7 @@
 	
 	function displayItemOnCartPresentation($id, $amount) {
         $retStr = '';
-		$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+		$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), TRUE);
         
         $insertNewRow = '';
         if (isMobile()) {
@@ -860,7 +860,7 @@
 		$priceTotal = 0;
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
-			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+			$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), TRUE);
 			$priceTotal = $priceTotal + getInCurrentCurrencyValueOnly(floatval($item['price']), true, false) * $value;
 		}
 		return $priceTotal;
@@ -870,7 +870,7 @@
 		$priceTotal = 0;
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$idParsed = parseId($key);
-			$item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+			$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $idParsed . ".json"), 'UTF-8', 'ASCII'), TRUE);
 			$priceTotal = $priceTotal + floatval($item['price']) * $value;
 		}
 		return $priceTotal;
@@ -895,7 +895,7 @@
 	}
 	
 	function getValueOfItem($id, $key) {
-	    $item = json_decode(htmlentities(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8"), TRUE);
+	    $item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), TRUE);
         return $item[$key];
     }
 	
