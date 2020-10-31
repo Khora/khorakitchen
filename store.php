@@ -18,7 +18,7 @@
                     echo getTopBanner();
                     $text = '<h3>You buy the food, we serve the meals.</h3>
                             <h3>-</h3>
-                            Through buying meals and ingredients in our online store you are directly funding the provision of free meals to refugees and others in need living in Athens. No staff costs, no obstacles to access the food. It’s that simple.';
+                            There are very hungry people in our city. Cuts, exclusionary policies and racism in Greece leave many of us without a stable income or way to get food. We’ve come together as a group to cook hot, healthy and delicious food for everyone. We’ve got the chefs, the kitchen and the energy - we need your help to buy the tomatoes. Together, we the people can feed the people! Scroll down on this page to buy the ingredients we need.';
                     $image = 'img/storeTop.jpg';
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>

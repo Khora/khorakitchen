@@ -30,23 +30,23 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        Our online store is the virtual, fundraising counterpart to our restaurant in Athens. The concept behind this store is simple: you buy meals and ingredients online, we serve food for free in the café. We’ve all been told to finish our food because people are hungry, but it’s rarely clear how to bridge that gap between the abundance of food for some and its scarcity for others. Through our online store we want to make it easy for you to buy lunch for someone else who needs it. Thanks to being entirely staffed by volunteers and minimising our running costs, your money goes extremely far: one meal on your lunch break can equal a whole month worth of food for someone in Athens.<br><br><br><br>
+                        <h2>Help Khora Social Kitchen into 2021!</h2>
+                        <br>
+                        <h3>Hungry in Athens</h3>
+                        2020 has been tough. In Athens we have been facing evictions from supported housing for refugees, closures of essential services and escalating police violence. Coronavirus has compounded these problems: community centers and social kitchens all over the city have shut their doors, leaving many of us without access to food or safe spaces. Khora kitchen has stayed open because we know what it means to be hungry - but we need your help to keep going.
+                        <br><br>
+                        <h3>Who we are</h3>
+                        Khora started in 2016 as a diverse group of people who had found themselves in Athens facing racism, exclusion, isolation and hunger. We are housed and unhoused, documented and undocumented, local and international - working together to feed the people of our city.
+                        The Khora kitchen is many things: a cafe, a support group, a protest group, the home of the best dhal in Athens; a community. We work, laugh, and cry each day at this space, helping and motivating each other, sharing dishes and learning childhood recipes from around the world. 
+                        <br><br>
+                        <h3>A cafe for everyone</h3>
+                        As the only remaining social kitchen in Athens that is still open, we've had to double our output in the past months to nearly 1,000 people a day. We do this without id checks or long queues. For many of us, especially those of us who live in camps, life is full of hours-long queues, document checks and rejections to use services on the basis of paperwork, age, or gender. Our cafe is a place where everyone is welcome - no justification necessary. 
+                        <br><br>
+                        <h3>Join us!</h3>
+                        We need your help buying basic ingredients - like oil, vegetables, beans, rice - so that we can keep on sharing these delicious meals with our community. Please head over to our kitchen store page and help us buy what we need!
+                        <br><br><br>
                         
-                        [graphic: pret lunch vs lunch here]<br><br><br><br>
-                        
-                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
-                        
-                        Life in Athens for refugees and other vulnerable communities can be extremely difficult: negotiating the asylum claim system, finding housing, and caring for children are just some of the challenges people can face. Trying to find regular meals can make dealing with these needs feel like a constant fight just to survive. Furthermore, many displaced people arriving in Athens have experienced horrific food distribution lines in refugee camps on the islands, with people reporting spending up to 12 hours a day queueing for food that is sometimes moldy [source].<br><br><br><br>
-                        
-                        [graphic: food distribution lines and/ or food service at khora]<br><br><br><br>
-                        
-                        This is why we created Khora Community Kitchen, a safe space where we create a thriving community atmosphere for people to enjoy their meals. We are a restaurant with a difference: not only are all the meals free, many of our co-ordinators, chefs and volunteers are from the community who eat here. This is an opportunity for people who worked in the hospitality industry in their country of origin to share their skills and continue their profession. We are built on the principles of love and respect and this creates the caring and lively atmosphere within the kitchen.<br><br><br><br>
-                        
-                        [graphic: interior of kitchen]<br><br><br><br>
-                        
-                        Everytime you buy an item in our store you are helping provide this alternative food provision service. Coupled with our ‘Free Shop’, Khora is dedicated to providing refugees and others in need with their basic needs in a dignified and normal way.<br><br><br><br>
-                        
-                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br><br><br>
+                        <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br>
                     </div>
                 </div>
             </div>

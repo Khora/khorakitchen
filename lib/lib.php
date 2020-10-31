@@ -323,7 +323,9 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a id="headerLink" href="' . getFullDomainName() . 'contact.php">CONTACT and FAQ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--- <a id="headerLink" href="' . getFullDomainName() . 'contact.php">CONTACT and FAQ</a> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &copy; Khora, ' . date("Y") . '. All rights reserved.
                                 <a href="http://www.khora-athens.org/"><div id="webpage"></div></a>
                                 <a href="https://www.facebook.com/KhoraAthens/"><div id="facebook"></div></a>
@@ -612,8 +614,8 @@
         if (!isMobile()) {
             return '<div style="position: relative; width: 100%; height: 500px;">
                     <div style="position: absolute; width: 50%; height: 500px; background: #ffc65b;">
-                        <div style="padding-top: 55px; padding-bottom: 100px; padding-right: 100px; font-size: 20px; line-height: 25px;">
-                            <div style="width: 300px; float: right;">
+                        <div style="padding-top: 20px; padding-bottom: 100px; padding-right: 50px; font-size: 20px; line-height: 25px;">
+                            <div style="width: 400px; float: right;">
                                 ' . $text . '
                             </div>
                         </div>
@@ -648,7 +650,7 @@
                                         ' . $text . '
                                     </td>
                                     <td style="width: 50%; padding: 0px;">
-                                        <div class="centerCroppedImage" style="float: right; position: relative; height: 400px; width: 100%; background-image: url(\'' . $image . '\');"></div>
+                                        <div class="centerCroppedImage" style="float: right; position: relative; height: 680px; width: 100%; background-image: url(\'' . $image . '\');"></div>
                                     </td>
                                 </tr>
                             </table>
@@ -660,7 +662,7 @@
                                 <table>
                                     <tr>
                                         <td style="width: 50%; padding: 0px;">
-                                            <div class="centerCroppedImage" style="float: right; position: relative; height: 400px; width: 100%; background-image: url(\'' . $image . '\');"></div>
+                                            <div class="centerCroppedImage" style="float: right; position: relative; height: 680px; width: 100%; background-image: url(\'' . $image . '\');"></div>
                                         </td>
                                         <td class="blockquoteRight" style="width: 50%; padding-left: 20px;">
                                             ' . $text . '
@@ -676,7 +678,7 @@
                         <table>
                             <tr>
                                 <td style="width: 100%; padding: 0px;">
-                                    <div class="centerCroppedImage" style="float: right; position: relative; height: 400px; width: 100%; background-image: url(\'' . $image . '\');"></div>
+                                    <div class="centerCroppedImage" style="float: right; position: relative; height: 680px; width: 100%; background-image: url(\'' . $image . '\');"></div>
                                 </td>
                             </tr>
                             <tr>
