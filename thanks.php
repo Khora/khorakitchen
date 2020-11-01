@@ -48,9 +48,10 @@
             <div id="content">
                 <?php
                     echo getTopBanner();
-                    $text = '<h3>Thank you!</h3>
+                    $text = '<br><h3>Thank you!</h3>
                             <h3>-</h3>
-                            Making a purchase on our online store funds Khora Community Kitchen, where we serve 500 meals a day to refugees, migrants and people in need living in Athens. Let’s radically rethink food and put compassion and solidarity at its core.';
+                            
+                            Making a purchase on our online store funds Khora Community Kitchen, where we serve 1000 meals a day to refugees, migrants and people in need living in Athens. Let\'s radically rethink food and put compassion and solidarity at its core.';;
                     $image = 'img/thankYou.jpg';
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>
@@ -61,8 +62,8 @@
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
                         <center><h1>THANK YOU!</h1></center><br>
                         <h2>Thank you for the donation</h2>
-                        Thank you for your kindness and generosity. Without people like you we wouldn’t be able to run the kitchen.<br><br>
-                        Your donation will help to feed 500 people a day, giving people the reliability of regular meals and the joy of eating nutritious and tasty food in a welcoming atmosphere.<br><br>
+                        Thank you for your kindness and generosity. Without people like you we wouldn't be able to run the kitchen.<br><br>
+                        Your donation will help to feed 1000 people a day, giving people the reliability of regular meals and the joy of eating nutritious and tasty food in a welcoming atmosphere.<br><br>
                         <?php
                             if (isset($_GET['message']) == false) {
                                 echo 'If you would like to send a message with your meal, please write it below.<br>We will stick this up in the kitchen for guests to read while they eat!<br><br><br><br>';

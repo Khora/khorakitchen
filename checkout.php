@@ -153,7 +153,6 @@
                             }
                             $khoraBusinessAddress = getEmailForPayPal();
                             $message = 'Thank you for your kindness and generosity. Without people like you we would not be able to run the kitchen.';
-                            $currency = getCurrentCurrencySymbol();
                             $currencyString = getCurrency();
                             $eurPrice = '';
                             $eurNote = '';
@@ -177,7 +176,7 @@
                                 echo '<div class="horizontalCenteredBase">
                                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
                                         <div id="stripe-error-message"></div>
-                                        To donate the amount of <b><u>' . $amount . " " . $currency . $eurPrice . '</u></b> to the Khora Community Kitchen, please click the button below to proceed to Stripe.<br><br>
+                                        To donate the amount of <b><u>' . getCurrentCurrencySymbol($amount) . $eurPrice . '</u></b> to the Khora Community Kitchen, please click the button below to proceed to Stripe.<br><br>
                                         ' . $eurNote . '
                                         <div class="infoDiv">
                                             <nobr>
@@ -194,7 +193,7 @@
                             } else if ($radioId == 2) {
                                 echo '<div class="horizontalCenteredBase">
                                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
-                                        To donate the amount of <b><u>' . $amount . " " . $currency .'</u></b> to the Khora Community Kitchen, please click the button below to proceed to PayPal.
+                                        To donate the amount of <b><u>' . getCurrentCurrencySymbol($amount) .'</u></b> to the Khora Community Kitchen, please click the button below to proceed to PayPal.
                                         </br></br>
                                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                                             <input type="hidden" name="cmd" value="_donations">
@@ -215,7 +214,7 @@
                                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px; text-align: center;">
                                         Please consider donating to the Khora Community Centre. To let us know that your donation shall be used for the Khora Community Kitchen, please write a note into the reference field of the transaction.
                                         </br></br>
-                                        The amount in your basket is <b><u>' . $amount . " " . $currency .'</u></b>.
+                                        The amount in your basket is <b><u>' . getCurrentCurrencySymbol($amount) .'</u></b>.
                                         </br></br>
                                         <b>Account name:</b> Khora Community Centre<br>
                                         <b>IBAN:</b> GR32 0172 0790 0050 7909 1525 571<br>

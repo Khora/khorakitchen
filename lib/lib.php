@@ -161,9 +161,8 @@
                             <div id="logo"></div>
                         </a>
                         <div id="headerText">
-                            <a id="headerLink" href="' . getFullDomainName() . 'index.php">ABOUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a id="headerLink" href="' . getFullDomainName() . 'index.php">CAMPAIGN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a id="headerLink" href="' . getFullDomainName() . 'store.php">STORE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="headerLink" href="' . getFullDomainName() . 'campaign.php">CAMPAIGN</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -214,7 +213,7 @@
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="' . getFullDomainName() . 'index.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;ABOUT</span></a>
+                            <a href="' . getFullDomainName() . 'index.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CAMPAIGN</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -222,17 +221,13 @@
                             <a href="' . getFullDomainName() . 'store.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;STORE</span></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
-                            <a href="' . getFullDomainName() . 'campaign.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CAMPAIGN</span></a>
-                        </td>
                     </tr>
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
                             <a href="' . getFullDomainName() . 'privacy.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;PRIVACY and COOKIES</span></a>
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
                             <a href="' . getFullDomainName() . 'terms.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;TERMS and CONDITIONS</span></a>
                         </td>
@@ -241,7 +236,7 @@
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
                             <a href="' . getFullDomainName() . 'contact.php" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;CONTACT and FAQ</span></a>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td style="height: 10mm; vertical-align: middle; border-color: #ffffff;">
                             <a href="http://www.khora-athens.org/" style="color: #555555; text-decoration: none;">&nbsp;<span style="font-size: 5mm;">&nbsp;KHORA WEBPAGE</span></a>
@@ -315,8 +310,8 @@
                     </div> --->
                     <div id="footerBackground">
                         <div id="footer" style="color: #222222;">
-                                <a id="headerLink" href="' . getFullDomainName() . 'privacy.php">PRIVACY and COOKIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a id="headerLink" href="' . getFullDomainName() . 'terms.php">TERMS and CONDITIONS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="headerLink" href="' . getFullDomainName() . 'privacy.php">PRIVACY and COOKIES</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--- <a id="headerLink" href="' . getFullDomainName() . 'terms.php">TERMS and CONDITIONS</a> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -334,7 +329,7 @@
                     </div>
                     <div id="footerAssociationBackground">
                         <div id="footer" style="color: #222222;">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><br>
+                                Khora is a registered Greek Association (A.M. ΣΩΜΑΤΕΙΟΥ) number 32063.
                         </div>
                     </div>';
         } else {
@@ -344,8 +339,8 @@
                         </div>
                     </div> --->
                     <div id="footerAssociationBackground">
-                        <div style="padding-left: 10px; padding-right: 10px;">
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><br>
+                        <div style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
+                                Khora is a registered Greek Association (A.M. ΣΩΜΑΤΕΙΟΥ) number 32063.
                         </div>
                     </div>';
         }
@@ -407,12 +402,12 @@
                 </style>
         
             <div class="progressBarContainer">
-                <a href="' . getFullDomainName() . 'campaign.php" style="cursor: pointer;">
-                    &nbsp;CAMPAIGN:
+                <a href="' . getFullDomainName() . 'index.php" style="cursor: pointer;">
+                    <center>CAMPAIGN:</center>
                     <div class="progressBar">
                         <div class="progressBarOrange"></div>
                     </div>
-                    &nbsp;' . getInCurrentCurrency($alreadyCollectedDonationAmount, false) . ' of ' . getInCurrentCurrency($targetDonationAmount, false) . '
+                    <center>' . getInCurrentCurrency($alreadyCollectedDonationAmount, false) . ' of ' . getInCurrentCurrency($targetDonationAmount, false) . '</center>
                 </a>
             </div>
         ';
@@ -579,6 +574,7 @@
      * Gets a formatted full width banner containing a random text.
      */
     function getTopBanner() {
+        return '';
         $randomNumber = rand(0, 5);
         $textToUse = '';
         if ($randomNumber == 0) {
@@ -610,6 +606,47 @@
     /*
      * Gets a formatted full width banner containing the given text and image.
      */
+    function getFullWidthTextAndImageBannerSlideshow($text, $images) {
+        $width = '729px';
+        $height = '390px';
+        $left = '50%';
+        if (!isMobile()) {
+            return '<div style="position: relative; width: 100%; background: #ffc65b; height: 390px;">
+                        <div style="width: 50%; float: left; background: #ffc65b;">
+                            <div style="background: #ffc65b; padding-bottom: 180px;">
+                                <div style="padding-top: 20px; padding-bottom: 180px; padding-right: 50px; font-size: 20px; line-height: 25px;">
+                                    <div style="width: 400px; float: right;">
+                                        ' . $text . '
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 50%; background: #ffc65b; float: left;">
+                            ' . embedGallery($images, $width, $height, $left) . '
+                        </div>
+                    </div>';
+        } else {
+            $left = '0%';
+            return '<div style="position: relative; width: 100%; height: auto;">
+                        <div style="position: relative; width: 100%; height: auto; background: #ffc65b;">
+                            <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 10px; padding-right: 10px; font-size: 20px; line-height: 25px;">
+                                <div style="float: center;">
+                                    ' . $text . '
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: relative; left: 0px; padding: 0px; margin: 0px; width: 100%; height: ' . $height . '; background: #ffc65b;">
+                            <div style="position: relative; left: calc((100% - ' . $width . ') / 2); width: 100%; height: ' . $height . '; background: #ffc65b;">
+                                ' . embedGallery($images, $width, $height, $left) . '
+                            </div>
+                        </div>
+                    </div>';
+        }
+    }
+    
+    /*
+     * Gets a formatted full width banner containing the given text and image.
+     */
     function getFullWidthTextAndImageBanner($text, $image) {
         if (!isMobile()) {
             return '<div style="position: relative; width: 100%; height: 500px;">
@@ -634,6 +671,25 @@
                     <div class="centerCroppedImage" style="position: relative; height: 500px; width: 100%; background-image: url(\'' . $image . '\');"></div>
                 </div>';
         }
+    }
+    
+    function embedGallery($imagesToShow, $width, $height, $left) {
+        $s = '';
+		foreach ($imagesToShow as $img) {
+		    $s .= '<div><img u="image" src="' . $img . '" /></div>';
+		}
+    
+        $retString = '<script src="lib/jquery-3.5.1.min.js"></script><script src="lib/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
+                        <div id="slider1_container" style="background: #ffc65b; position: absolute; top: 0px; left: ' . $left . '; width: ' . $width . '; height: ' . $height . ';">
+                            <div u="slides" style="background: #ffc65b; cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: ' . $width . '; height: ' . $height . ';">
+                                ' . $s . '
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            var options = { $AutoPlay: true };
+                            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+                        </script>';
+        return $retString;
     }
     
     /*
@@ -727,14 +783,14 @@
 	function displayItemOnSearch($id) {
         $widthSubtraction = 100;
         if (isMobile()) {
-            $widthSubtraction = 0;
+            $widthSubtraction = 50;
         }
 		$item = json_decode(mb_convert_encoding(file_get_contents("./store/items/" . $id . ".json"), 'UTF-8', 'ASCII'), TRUE);
 		return '<table style="width: calc(100% - ' . $widthSubtraction . 'px);">
                     <tr>
                         <td valign="center" style="width: calc(100% - ' . $widthSubtraction . 'px);">
                             <a href="' . getFullDomainName() . 'item.php?id=' . $id . '">
-                                <img src="store/img/' . $item['image'] . '" width="350px" style="display: inline-block; text-align: center;">
+                                <img src="store/img/' . $item['image'] . '" width="300px" style="display: inline-block; text-align: center;">
                             </a>
                         </td>
                     </tr>
@@ -842,13 +898,12 @@
                             </script>
 							</br></br>
                             
-							Price: ' . getInCurrentCurrency(floatval($item['price']), true) . ' * ' . $amount . ' = ' . 
-							formatCurrencyValue(floatval(getInCurrentCurrencyValueOnly(floatval($item['price']), true, false)) * floatval($amount), true, true)
-							 . getCurrentCurrencySymbol() . '<span class="right"><small>ID: ' . $id . '</small></span>
+							Price: ' . getInCurrentCurrency(floatval($item['price']), true) . ' * ' . $amount . ' = '
+							
+							 . getCurrentCurrencySymbol(formatCurrencyValue(floatval(getInCurrentCurrencyValueOnly(floatval($item['price']), true, false)) * floatval($amount), true, true)) . '<span class="right"><small>ID: ' . $id . '</small></span>
 						</td>
 					</tr>
-				</table>
-				</br></br></br></br>';
+				</table>';
         return $retStr;
 	}
 	
@@ -887,9 +942,9 @@
             }
             if ($i > 0) {
                 if ($i == 1) {
-                    $retValue = formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true) . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
+                    $retValue =  getCurrentCurrencySymbol(formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true)) . '&nbsp;(' . $i . '&nbsp;item)&nbsp;';
                 } else {
-                    $retValue = formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true) . getCurrentCurrencySymbol() . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
+                    $retValue =  getCurrentCurrencySymbol(formatCurrencyValue(getCurrentPriceOfCart(), $showAfterFloatingPoint, true)) . '&nbsp;(' . $i . '&nbsp;items)&nbsp;';
                 }
             }
         }
@@ -975,7 +1030,7 @@
         if (strcmp(getCurrency(), "EUR") == 0) {
             return formatCurrencyValue($value, $showAfterFloatingPoint, true) . "&euro;";
         }
-        return formatCurrencyValue(getPoundsToEuros($value), $showAfterFloatingPoint, true) . "&pound;";
+        return "&pound;" . formatCurrencyValue(getPoundsToEuros($value), $showAfterFloatingPoint, true);
     }
     
     function getInCurrentCurrencyValueOnly($value, $showAfterFloatingPoint, $convertFloatingPointSymbol) {
@@ -998,11 +1053,11 @@
         return $retVal;
     }
     
-    function getCurrentCurrencySymbol() {
+    function getCurrentCurrencySymbol($valueString) {
         if (strcmp(getCurrency(), "EUR") == 0) {
-            return "&euro;";
+            return $valueString . "&euro;";
         }
-        return "&pound;";
+        return "&pound;" . $valueString;
     }
     
     function getPoundsToEuros($value) {

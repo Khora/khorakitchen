@@ -109,6 +109,7 @@
                         ?>
                     </div>
                 </div>
+                <center><a href="https://www.khora-athens.org/donate" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/logo_small.png" style="vertical-align: middle;">&nbsp;&nbsp;GENERAL DONATION</a></center><br><br>
             </div>
             <?php
                 echo getPageFooter();
