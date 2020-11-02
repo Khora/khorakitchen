@@ -627,7 +627,7 @@
                     </div>';
         } else {
             $left = '0%';
-            return '<div style="position: relative; width: 100%; height: auto;">
+            return '<div style="overflow-y: hidden; position: relative; width: 100%; height: auto;">
                         <div style="position: relative; width: 100%; height: auto; background: #ffc65b;">
                             <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 10px; padding-right: 10px; font-size: 20px; line-height: 25px;">
                                 <div style="float: center;">
@@ -635,7 +635,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: relative; left: 0px; padding: 0px; margin: 0px; width: 100%; height: ' . $height . '; background: #ffc65b;">
+                        <div style="overflow-y: hidden; position: relative; left: 0px; padding: 0px; margin: 0px; width: 100%; height: ' . $height . '; background: #ffc65b;">
                             <div style="position: relative; left: calc((100% - ' . $width . ') / 2); width: 100%; height: ' . $height . '; background: #ffc65b;">
                                 ' . embedGallery($images, $width, $height, $left) . '
                             </div>
@@ -662,7 +662,7 @@
         } else {
             return '<div style="position: relative; width: 100%; height: auto;">
                     <div style="position: relative; width: 100%; height: auto; background: #ffc65b;">
-                        <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 10px; padding-right: 10px; font-size: 20px; line-height: 25px;">
+                        <div style="padding-top: 15px; padding-bottom: 55px; padding-left: 30px; padding-right: 30px; font-size: 20px; line-height: 25px;">
                             <div style="float: center;">
                                 ' . $text . '
                             </div>
@@ -680,7 +680,7 @@
 		}
     
         $retString = '<script src="lib/jquery-3.5.1.min.js"></script><script src="lib/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
-                        <div id="slider1_container" style="background: #ffc65b; position: absolute; top: 0px; left: ' . $left . '; width: ' . $width . '; height: ' . $height . ';">
+                        <div id="slider1_container" style="overflow-y: hidden; background: #ffc65b; position: absolute; top: 0px; left: ' . $left . '; width: ' . $width . '; height: ' . $height . ';">
                             <div u="slides" style="background: #ffc65b; cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: ' . $width . '; height: ' . $height . ';">
                                 ' . $s . '
                             </div>

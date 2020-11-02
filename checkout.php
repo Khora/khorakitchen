@@ -54,7 +54,7 @@
                                 <tr>
                                     <td valign="top" width="<?php echo $width; ?>%">
                                         <div id="radioDiv1" onmouseover="mouseOverRadioBox('radioDiv1')" onmouseout="mouseOutRadioBox('radioDiv1')" onclick="updateRadioBoxesDonation('radio1', true);" class="clickableDiv">
-                                            <h4><input id="radio1" type="radio" name="countrySelection" checked onclick="updateRadioBoxesDonation('radio1', true);">&nbsp;&nbsp;Donate via Stripe</h4>
+                                            <h4><input id="radio1" type="radio" name="countrySelection" checked onclick="updateRadioBoxesDonation('radio1', true);">&nbsp;&nbsp;Donate via Stripe (for card donations)</h4>
                                         </div>
                                     </td>
                                 </tr>
@@ -186,7 +186,7 @@
                                             </nobr>
                                         </div>
                                         <br>
-                                        <input type="image" src="img/stripeLogoBig.png" style="width: 200px; padding: 15px 40px 15px 40px;" class="bigButton" name="submit" alt="Stripe" onclick="goToStripePayment(\'' . $stripeMode . '\', ' . $stripeItems . ', \'' . $currentDomain . '\', \'' . $stripeKey . '\', document.getElementById(\'notRecurring\').checked, document.getElementById(\'monthlyRecurring\').checked, document.getElementById(\'yearlyRecurring\').checked);"><br>
+                                        <input type="image" src="img/stripeLogoBig.png" style="width: 100px; padding: 15px 40px 15px 40px;" class="bigButton" name="submit" alt="Stripe" onclick="goToStripePayment(\'' . $stripeMode . '\', ' . $stripeItems . ', \'' . $currentDomain . '\', \'' . $stripeKey . '\', document.getElementById(\'notRecurring\').checked, document.getElementById(\'monthlyRecurring\').checked, document.getElementById(\'yearlyRecurring\').checked);"><br>
                                         <img src="img/creditCardsLogos.png" style="width: 200px;">
                                     </div>
                                 </div>';
@@ -204,7 +204,7 @@
                                             <input type="hidden" name="currency_code" value="' . $currencyString . '">
                                             <input type="hidden" name="no_note" value="0">
                                             <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-                                            <input type="image" src="img/payPalLogoBig.png" style="width: 200px; padding: 15px 40px 15px 40px;" class="bigButton" name="submit" alt="PayPal" onclick="callDelayed(goToThankYouPage, 3000);"><br>
+                                            <input type="image" src="img/payPalLogoBig.png" style="width: 150px; padding: 15px 40px 15px 40px;" class="bigButton" name="submit" alt="PayPal" onclick="callDelayed(goToThankYouPage, 3000);"><br>
                                             <img src="img/creditCardsLogos.png" style="width: 200px;">
                                         </form>
                                     </div>

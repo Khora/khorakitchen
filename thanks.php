@@ -63,7 +63,7 @@
                         <center><h1>THANK YOU!</h1></center><br>
                         <h2>Thank you for the donation</h2>
                         Thank you for your kindness and generosity. Without people like you we wouldn't be able to run the kitchen.<br><br>
-                        Your donation will help to feed 1000 people a day, giving people the reliability of regular meals and the joy of eating nutritious and tasty food in a welcoming atmosphere.<br><br>
+                        Your donation will help us cook 1,000 meals a day, enabling us to serve our community reliable, tasty, nutritious meals in a welcoming atmosphere.<br><br>
                         <?php
                             if (isset($_GET['message']) == false) {
                                 echo 'If you would like to send a message with your meal, please write it below.<br>We will stick this up in the kitchen for guests to read while they eat!<br><br><br><br>';
