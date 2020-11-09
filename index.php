@@ -48,7 +48,7 @@
                         </div>
                         <br>
                         <h3>A cafe for everyone</h3>
-                        As the only remaining social kitchen in Athens that is still open, we've had to double our output in the past months to 1,000 people a day. We do this without id checks or long queues. For many of us, especially those of us who live in camps, life is full of hours-long queues, document checks and rejections to use services on the basis of paperwork, age, or gender. Our cafe is a place where everyone is welcome - no justification necessary. 
+                        As one of the few remaining social kitchens in Athens that are still running, we've had to double our output in the past months to cooking 1,000 meals a day. We do this without id checks or registration. For many of us, especially those of us who live in camps, life is full of hours-long queues, document checks and rejections to use services on the basis of paperwork, age, or gender. Our cafe is a place where everyone is welcome - no justification necessary. 
                         <br><br>
                          <div style="font-style: italic; font-size: 20px; color: #c4830b; padding: 0px 0px 0px 60px; margin: 0px;">
                             "For me, I love Khora for that. I've been valued here - and not only me, anyone who comes; refugee or not, volunteer or not, wherever you come from, it doesn't matter here. There's no hierarchy, even the structure we have only helps us because it doesn't affect our morale and it doesn't affect how we treat each other" - Brice, Cameroon (Khora Volunteer)
