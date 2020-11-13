@@ -40,7 +40,7 @@
                         <br><br><br>
                         <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br>
                         <h3>Who we are</h3>
-                        Khora started in 2016 as a diverse group of people who had found themselves in Athens facing racism, exclusion, isolation and hunger. We are housed and unhoused, documented and undocumented, local and international - working together to feed the people of our city.
+                        Khora started in 2016 as a diverse group of people who came together in Athens to offer solidarity and support with the community. We are housed and unhoused, documented and undocumented, local and international - working together to feed the people of our city.
                         The Khora kitchen is many things: a cafe, a support group, a protest group, the home of the best dhal in Athens; a community. We work, laugh, and cry each day at this space, helping and motivating each other, sharing dishes and learning childhood recipes from around the world.
                         <br><br>
                         <div style="font-style: italic; font-size: 20px; color: #c4830b; padding: 0px 0px 0px 60px; margin: 0px;">

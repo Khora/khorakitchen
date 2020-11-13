@@ -48,10 +48,13 @@
             <div id="content">
                 <?php
                     echo getTopBanner();
-                    $text = '<br><h3>Thank you!</h3>
-                            <h3>-</h3>
+                    $text = '<h3>Thank you!</h3>
                             
-                            Making a purchase on our online store funds Khora Community Kitchen, where we serve 1000 meals a day to refugees, migrants and people in need living in Athens. Let\'s radically rethink food and put compassion and solidarity at its core.';;
+                            From the entire Khora community, we thank you from the bottom of our hearts.  Without you and your support, we couldn\'t continue doing what we do, especially in these challenging times.
+                            <br><br>
+                            We would be hugely grateful if you could share the campaign with all your friends and family. Feel free to copy and paste the information below to share via email or on your social media.
+                            <br><br>
+                            And if you would like to send a message to all our guests at the kitchen, please write it below in the comments box.';
                     $image = 'img/thankYou.jpg';
                     echo getFullWidthTextAndImageBanner($text, $image);
                 ?>
@@ -60,7 +63,11 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
-                        <center><h1>THANK YOU!</h1></center><br>
+                        <h2>Sharing the campaign</h2>
+                        I've just donated to this campaign and I wanted to share it with you.  
+                        <br><br>
+                        The Khora social kitchen is a not for profit organisation based in Athens, Greece and is trying to raise €10,000 this November. They've got the chefs, the kitchen and the energy - they just need your help to buy the ingredients. Making a purchase on their online store funds Khora's Community Kitchen, where they serve 1000 meals a day to refugees, migrants and people in need living in Athens.  Every little bit helps: https://khorakitchen.org 
+                        <br><br>
                         <h2>Thank you for the donation</h2>
                         Thank you for your kindness and generosity. Without people like you we wouldn't be able to run the kitchen.<br><br>
                         Your donation will help us cook 1,000 meals a day, enabling us to serve our community reliable, tasty, nutritious meals in a welcoming atmosphere.<br><br>
