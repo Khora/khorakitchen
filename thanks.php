@@ -67,23 +67,12 @@
                         I've just donated to this campaign and I wanted to share it with you.  
                         <br><br>
                         The Khora social kitchen is a not for profit organisation based in Athens, Greece and is trying to raise €10,000 this November. They've got the chefs, the kitchen and the energy - they just need your help to buy the ingredients. Making a purchase on their online store funds Khora's Community Kitchen, where they serve 1000 meals a day to refugees, migrants and people in need living in Athens.  Every little bit helps: https://khorakitchen.org 
-                        <br><br>
-                        <h2>Thank you for the donation</h2>
-                        Thank you for your kindness and generosity. Without people like you we wouldn't be able to run the kitchen.<br><br>
-                        Your donation will help us cook 1,000 meals a day, enabling us to serve our community reliable, tasty, nutritious meals in a welcoming atmosphere.<br><br>
+                        <br><br><br>
                         <?php
                             if (isset($_GET['message']) == false) {
-                                echo 'If you would like to send a message with your meal, please write it below.<br>We will stick this up in the kitchen for guests to read while they eat!<br><br><br><br>';
-                            }
-                        ?>
-                        
-                        <?php
-                            if (isset($_GET['message']) == false) {
-                                echo '<table width="100%">
+                                echo 'Comments:<br><br>
+                                        <table width="100%">
                                             <tr width="100%">
-                                                <td valign="center" width="10%">
-                                                    Message:<br><br>
-                                                </td>
                                                 <td>
                                                     <textarea id="message" class="addToCartTextInput" name="message" rows="10" style="width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea><br><br>
                                                 </td>
