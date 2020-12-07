@@ -11,10 +11,12 @@
 	<body>
 		<div id="wrapper">
             <?php
+                $giftCard = createButtonForGiftCard($_SESSION['cart']);
+                
                 $zeroValues = array();
                 if (isset($_SESSION['cart'])) {
                     foreach ($_SESSION['cart'] as $key => $value) {
-                        unset($_SESSION['cart'][$key]);
+                        //unset($_SESSION['cart'][$key]);
                     }
                 }
                 echo getPageHeader("THANK YOU");
@@ -63,11 +65,15 @@
                 
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
+                        
                         <h2>Sharing the campaign</h2>
                         I've just donated to this campaign and I wanted to share it with you.  
                         <br><br>
                         The Khora social kitchen is a not for profit organisation based in Athens, Greece and is trying to raise €10,000 this November. They've got the chefs, the kitchen and the energy - they just need your help to buy the ingredients. Making a purchase on their online store funds Khora's Community Kitchen, where they serve 1000 meals a day to refugees, migrants and people in need living in Athens.  Every little bit helps: https://khorakitchen.org 
                         <br><br><br>
+
+                        <?php echo $giftCard; ?>
+                        
                         <?php
                             if (isset($_GET['message']) == false) {
                                 echo 'Comments:<br><br>

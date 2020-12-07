@@ -1435,4 +1435,30 @@
 
         return $data;
     }
+    
+    function createButtonForGiftCard($idsOfItemsInCart) {
+        $giftCardPotatoes = '<center><a href="static/Khora_Gift_Card_Potatoes.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';
+        $giftCardRice = '<center><a href="static/Khora_Gift_Card_Rice.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';
+        $giftCardVegetables = '<center><a href="static/Khora_Gift_Card_Vegetables.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';
+        
+        $idPotatoes = 'id1146';
+        $idRice = 'id1152';
+        $idVegetables = 'id1178';
+        
+        if (!isset($idsOfItemsInCart)) {
+            return '';
+        }
+
+        $giftCard = '';
+        if (isset($idsOfItemsInCart[$idPotatoes]) && intval($idsOfItemsInCart[$idPotatoes]) > 0) {
+            $giftCard = $giftCardPotatoes;
+        }
+        if (isset($idsOfItemsInCart[$idRice]) && intval($idsOfItemsInCart[$idRice]) > 0) {
+            $giftCard = $giftCardRice;
+        }
+        if (isset($idsOfItemsInCart[$idVegetables]) && intval($idsOfItemsInCart[$idVegetables]) > 0) {
+            $giftCard = $giftCardVegetables;
+        }
+        return $giftCard;
+    }
 ?>
