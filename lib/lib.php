@@ -350,6 +350,9 @@
      * Gets a formatted button containing the given text and image.
      */
     function getDonationProgress($alreadyCollectedDonationAmount, $targetDonationAmount, $xPos, $yPos) {
+        // disable this functionality
+        return '';
+        
         $targetDonationAmount = max($targetDonationAmount, 0);
         $percentage = 100 * $alreadyCollectedDonationAmount / $targetDonationAmount;
         $percentage = min(max($percentage, 0), 100);
