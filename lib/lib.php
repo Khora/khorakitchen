@@ -1440,6 +1440,9 @@
     }
     
     function createButtonForGiftCard($idsOfItemsInCart) {
+        if (!isset($idsOfItemsInCart)) {
+            return '';
+        }
         $giftCardPotatoes = '<center><a href="static/Khora_Gift_Card_Potatoes.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';
         $giftCardRice = '<center><a href="static/Khora_Gift_Card_Rice.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';
         $giftCardVegetables = '<center><a href="static/Khora_Gift_Card_Vegetables.pdf" class="bigButton" style="background-color: white; border: 10px solid #ffc65b;"><img src="img/download.png" style="height: 50px; vertical-align: middle;">&nbsp;&nbsp;DOWNLOAD GIFT CARD</a></center><br><br>';

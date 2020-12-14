@@ -11,10 +11,10 @@
 	<body>
 		<div id="wrapper">
             <?php
-                $giftCard = createButtonForGiftCard($_SESSION['cart']);
-                
+                $giftCard = '';
                 $zeroValues = array();
                 if (isset($_SESSION['cart'])) {
+                    $giftCard = createButtonForGiftCard($_SESSION['cart']);
                     foreach ($_SESSION['cart'] as $key => $value) {
                         unset($_SESSION['cart'][$key]);
                     }
