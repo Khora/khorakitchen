@@ -1,0 +1,12 @@
+{
+	"name": "Recycled Face Masks",
+	"title": "5 pieces",
+	"description": "Handmade in our Beehive space, using recycled materials from the Khora Freeshop, for use by volunteers in the Khora Social Kitchen!",
+	"type": "Hygiene",
+	"category": "Miscellaneous/Hygiene",
+	"image": "8a.jpg",
+	"price": 10,
+	"onceStripeID": "price_1I1rZCLO5RaK7SdOeqEOEw2x",
+	"monthlyStripeID": "price_1I1rZCLO5RaK7SdOvT2oyyd0",
+	"yearlyStripeID": "price_1I1rZCLO5RaK7SdOmIwycd8L"
+}
