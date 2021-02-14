@@ -16,9 +16,9 @@
             <div id="content">
                 <?php
                     echo getTopBanner();
-                    $text = '<br><h3>Help Khora Kitchen into 2021.</h3>
+                    $text = '<br><h3>Help Khora Kitchen in 2021.</h3>
                             <h3>-</h3>
-                            Making a purchase on our online store funds Khora Community Kitchen, where we serve 1000 meals a day to refugees, migrants and people in need living in Athens. Let\'s radically rethink food and put compassion and solidarity at its core.';
+                            Making a purchase on our online store funds Khora Community Kitchen, where we currently cook and serve 600 meals a day to refugees, migrants and people in need living in Athens. Let\'s radically rethink food and put compassion and solidarity at its core.';
                     $images = ['img/overview.jpg', 'img/thankYou.jpg', 'img/imgKitchen1.jpg', 'img/imgKitchen5.jpg', 'img/imgKitchen4.jpg', 'img/imgKitchen3.jpg'];
                     echo getFullWidthTextAndImageBannerSlideshow($text, $images);
                 ?>
@@ -36,7 +36,7 @@
                 <div class="horizontalCenteredBase">
                     <div class="horizontalCentered" style="font-size: 20px; line-height: 30px;">
                         <h3>Hungry in Athens</h3>
-                        2020 has been tough. In Athens we have been facing evictions from supported housing for refugees, closures of essential services and escalating police violence. Coronavirus has compounded these problems: community centers and social kitchens all over the city have shut their doors, leaving many of us without access to food or safe spaces. Khora kitchen has stayed open because we know what it means to be hungry - but we need your help to keep going.
+                        2020 was tough. In Athens we have been facing evictions from supported housing for refugees, closures of essential services and escalating police violence. Coronavirus has compounded these problems: community centers and social kitchens all over the city have shut their doors, leaving many of us without access to food or safe spaces. Khora kitchen has stayed open because we know what it means to be hungry - but we need your help to keep going.
                         <br><br><br>
                         <center><a href="<?php echo getFullDomainName(); ?>store.php" class="bigButton">GO TO STORE</a></center><br><br>
                         <h3>Who we are</h3>
@@ -48,7 +48,7 @@
                         </div>
                         <br>
                         <h3>A cafe for everyone</h3>
-                        As one of the few remaining social kitchens in Athens that are still running, we've had to double our output in the past months to cooking 1,000 meals a day. We do this without id checks or registration. For many of us, especially those of us who live in camps, life is full of hours-long queues, document checks and rejections to use services on the basis of paperwork, age, or gender. Our cafe is a place where everyone is welcome - no justification necessary. 
+                        We are one of just a few social kitchens that operate in Athens. We currently cook and serve 600 meals every day. We do this without id checks or registration. For many of us, especially those of us who live in camps, life is full of hours-long queues, document checks and rejections to use services on the basis of paperwork, age, or gender. Our cafe is a place where everyone is welcome - no justification necessary.
                         <br><br>
                          <div style="font-style: italic; font-size: 20px; color: #c4830b; padding: 0px 0px 0px 60px; margin: 0px;">
                             "For me, I love Khora for that. I've been valued here - and not only me, anyone who comes; refugee or not, volunteer or not, wherever you come from, it doesn't matter here. There's no hierarchy, even the structure we have only helps us because it doesn't affect our morale and it doesn't affect how we treat each other" - Brice, Cameroon (Khora Volunteer)
