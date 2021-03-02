@@ -1,12 +1,12 @@
 {
-	"name": "Tahini",
-	"title": "5l",
-	"description": "A bucket of tahini. It is a very well loved ingredient and one of these doesn't last us very long, used for houmous, dressings, falafel sauce and many other Mediteranean dishes.",
-	"type": "Sauce",
-	"category": "Nourishments/Sauces",
-	"image": "3a.jpg",
-	"price": 13,
-	"onceStripeID": "price_1HfjXSLO5RaK7SdOqYCEJ8lv",
-	"monthlyStripeID": "price_1HfjXSLO5RaK7SdOmcMUFf6F",
-	"yearlyStripeID": "price_1HfjXSLO5RaK7SdOtIG1FcTh"
+	"name": "Vegetables",
+	"title": "20kg",
+	"description": "These are some of the vegetables that we use on a daily basis. With the help of the ECHO mobile library, we pick up a van full of vegetables twice a week from the Central Market of Athens.<br><br>@refugeelibrary<br><a href='https://facebook.com/refugeelibrary'>https://facebook.com/refugeelibrary</a>",
+	"type": "Nourishments",
+	"category": "Nourishments/Vegetables",
+	"image": "Vegetables.jpg",
+	"price": 15,
+	"onceStripeID": "price_1HfjXaLO5RaK7SdO5vUcrVPz",
+	"monthlyStripeID": "price_1HfjXaLO5RaK7SdOi2wQBJwF",
+	"yearlyStripeID": "price_1HfjXaLO5RaK7SdOsQwFBlWc"
 }

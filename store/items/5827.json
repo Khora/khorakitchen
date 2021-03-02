@@ -1,12 +1,12 @@
 {
-	"name": "Salad",
-	"title": "For a Day",
-	"description": "We serve fresh delicious and varied salad as part of every single meal.",
+	"name": "Lentil Soup",
+	"title": "For 600 people (1 day)",
+	"description": "A simple bowl of delicious and nutritious lentil soup for 600 people.",
 	"type": "Nourishments",
-	"category": "Nourishments/Vegetables",
-	"image": "5b.jpg",
-	"price": 58,
-	"onceStripeID": "price_1HfjVOLO5RaK7SdO5Fm0j9qy",
-	"monthlyStripeID": "price_1HfjVOLO5RaK7SdOEt7Nr7R9",
-	"yearlyStripeID": "price_1HfjVOLO5RaK7SdOF7VvGHCz"
+	"category": "Nourishments/Soups",
+	"image": "LentilSoup.jpg",
+	"price": 61,
+	"onceStripeID": "price_1HfjVILO5RaK7SdOkCw6MQb9",
+	"monthlyStripeID": "price_1HfjVILO5RaK7SdOfKg0UPvY",
+	"yearlyStripeID": "price_1HfjVILO5RaK7SdOJOy6ujHK"
 }

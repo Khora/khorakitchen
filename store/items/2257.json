@@ -1,12 +1,12 @@
 {
-	"name": "Tea",
-	"title": "For a Day",
-	"description": "Everybody loves a nice (sugary) hot cup of tea! Everything we need for hundreds of cups of tea - tea leaves, sugar and electricity, plus some spices for those that like them!",
-	"type": "Hot Drink",
-	"category": "Nourishments/Drinks",
-	"image": "2a.jpg",
+	"name": "Recycled Face Masks",
+	"title": "5 pieces",
+	"description": "Handmade in our Beehive space, using recycled materials from the Khora Freeshop, for use by volunteers in the Khora Social Kitchen!",
+	"type": "Hygiene",
+	"category": "Miscellaneous/Hygiene",
+	"image": "RecycledFaceMasks.jpg",
 	"price": 10,
-	"onceStripeID": "price_1HfjXoLO5RaK7SdOsXR3xa4X",
-	"monthlyStripeID": "price_1HfjXoLO5RaK7SdOH7peniCJ",
-	"yearlyStripeID": "price_1HfjXoLO5RaK7SdOaIeOXepN"
+	"onceStripeID": "price_1I1rZCLO5RaK7SdOeqEOEw2x",
+	"monthlyStripeID": "price_1I1rZCLO5RaK7SdOvT2oyyd0",
+	"yearlyStripeID": "price_1I1rZCLO5RaK7SdOmIwycd8L"
 }

@@ -1,12 +1,12 @@
 {
-	"name": "Toilet Paper",
-	"title": "For 3 months",
-	"description": "Basic.",
-	"type": "Hygiene",
-	"category": "Housekeeping/Hygiene",
-	"image": "4b.jpg",
-	"price": 42,
-	"onceStripeID": "price_1HfjW5LO5RaK7SdO0i1jPWOX",
-	"monthlyStripeID": "price_1HfjW5LO5RaK7SdOiBCoaz0X",
-	"yearlyStripeID": "price_1HfjW5LO5RaK7SdOUEDwfFmy"
+	"name": "Spices",
+	"title": "5kg",
+	"description": "Spice up our meals with an array of tasty flavours! Some people love chili, some people hate it, so we always have a jar on the counter to cater to all tastes.",
+	"type": "Spices",
+	"category": "Nourishments/Spices",
+	"image": "Spices.jpg",
+	"price": 40,
+	"onceStripeID": "price_1HfjWCLO5RaK7SdOxsArSxCM",
+	"monthlyStripeID": "price_1HfjWCLO5RaK7SdOSgPh0eam",
+	"yearlyStripeID": "price_1HfjWCLO5RaK7SdOlcPbs5NV"
 }

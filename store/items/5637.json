@@ -4,7 +4,7 @@
 	"description": "One of our main staples. Many of our chefs are absolute rice wizards and can make a perfect pan of rice for 200!",
 	"type": "Nourishments",
 	"category": "Nourishments/Cereal Grain",
-	"image": "5a.jpg",
+	"image": "Rice.jpg",
 	"price": 45,
 	"onceStripeID": "price_1HfjVzLO5RaK7SdOCLuOlXX7",
 	"monthlyStripeID": "price_1HfjVzLO5RaK7SdOIeRFjAyq",

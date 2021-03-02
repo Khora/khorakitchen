@@ -1,12 +1,12 @@
 {
-	"name": "Rice and Beans",
-	"title": "For a Day",
-	"description": "Hearty, nutritious and so many variations from all around the world! ",
-	"type": "Meal",
-	"category": "Nourishments/Meals",
-	"image": "7a.jpg",
-	"price": 200,
-	"onceStripeID": "price_1HfjUZLO5RaK7SdOzGSFIqtc",
-	"monthlyStripeID": "price_1HfjUZLO5RaK7SdOKsV32Imz",
-	"yearlyStripeID": "price_1HfjUZLO5RaK7SdOO62X5gD0"
+	"name": "Gas",
+	"title": "For two months",
+	"description": "Without gas we cannot cook a single thing, and it supplies all our hot water.",
+	"type": "Miscellaneous",
+	"category": "Housekeeping/Miscellaneous",
+	"image": "Gas.jpg",
+	"price": 240,
+	"onceStripeID": "price_1HfjUPLO5RaK7SdOYY2PqM35",
+	"monthlyStripeID": "price_1HfjUPLO5RaK7SdOcqyrCStu",
+	"yearlyStripeID": "price_1HfjUPLO5RaK7SdOCXmaNyS6"
 }

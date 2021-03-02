@@ -1,10 +1,10 @@
 {
 	"name": "Olive Oil",
 	"title": "5l",
-	"description": "A lovely big bottle of local Greek olive oil for dressing our daily delicious salads.",
+	"description": "A lovely big bottle of local Greek olive oil for dressing our delicious salads.",
 	"type": "Miscellaneous",
 	"category": "Nourishments/Miscellaneous",
-	"image": "2b.jpg",
+	"image": "OliveOil.jpg",
 	"price": 11,
 	"onceStripeID": "price_1HfjXhLO5RaK7SdOZfwOl5EK",
 	"monthlyStripeID": "price_1HfjXhLO5RaK7SdOn8nihFUp",

@@ -1,12 +1,12 @@
 {
-	"name": "Lentil Soup",
-	"title": "For a Day",
-	"description": "A simple bowl of delicious and nutritious lentil soup for our whole cafe for one day.",
-	"type": "Nourishments",
-	"category": "Nourishments/Soups",
-	"image": "6a.jpg",
-	"price": 61,
-	"onceStripeID": "price_1HfjVILO5RaK7SdOkCw6MQb9",
-	"monthlyStripeID": "price_1HfjVILO5RaK7SdOfKg0UPvY",
-	"yearlyStripeID": "price_1HfjVILO5RaK7SdOJOy6ujHK"
+	"name": "Take-away boxes",
+	"title": "1500 boxes (2.5 days worth)",
+	"description": "In this time of COVID-19 all of our food sadly has to be takeaway only. We use huge numbers of these boxes, and whilst we are continually exploring better, and more environmentally friendly options, these continue to be the cheapest and most practical (for now!).",
+	"type": "Miscellaneous",
+	"category": "Miscellaneous/Packaging",
+	"image": "TakeAwayBoxes.jpg",
+	"price": 105,
+	"onceStripeID": "price_1IQdkdLO5RaK7SdOb0z6hDaC",
+	"monthlyStripeID": "price_1IQdkdLO5RaK7SdOdh02AY5h",
+	"yearlyStripeID": "price_1IQdkdLO5RaK7SdOV15KNOnZ"
 }

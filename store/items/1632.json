@@ -1,10 +1,10 @@
 {
 	"name": "Potatoes",
 	"title": "30kg",
-	"description": "An essential ingredient in many of our meals, we can use 4 of these in one day - peeled, mashed, boiled and fried.",
+	"description": "An essential ingredient in many of our meals, we can use 4 of these sacks in one day - peeled, mashed, boiled and fried.",
 	"type": "Staples",
 	"category": "Nourishments/Staples",
-	"image": "1b.jpg",
+	"image": "Potatoes.jpg",
 	"price": 5,
 	"onceStripeID": "price_1HfjWRLO5RaK7SdOKhbKYLoH",
 	"monthlyStripeID": "price_1HfjWRLO5RaK7SdOhaIZ4jWb",

@@ -1,12 +1,12 @@
 {
-	"name": "Vegetables",
-	"title": "20kg",
-	"description": "These are the vegetables that we use on a daily basis. With the help of ECHO mobile library, we pick up a van's full of vegetables twice a week from the Central Market of Athens.<br><br>@echo refugee library<br><a href='https://facebook.com/refugeelibrary'>https://facebook.com/refugeelibrary</a>",
+	"name": "Tomato Puree",
+	"title": "4 giant 5kg tins",
+	"description": "Lovely Greek tomatoes in a can. One of our most regularly used ingredients - adding an extra delicious deep flavour.",
 	"type": "Nourishments",
-	"category": "Nourishments/Vegetables",
-	"image": "3b.jpg",
-	"price": 15,
-	"onceStripeID": "price_1HfjXaLO5RaK7SdO5vUcrVPz",
-	"monthlyStripeID": "price_1HfjXaLO5RaK7SdOi2wQBJwF",
-	"yearlyStripeID": "price_1HfjXaLO5RaK7SdOsQwFBlWc"
+	"category": "Nourishments/Purees",
+	"image": "TomatoPuree.jpg",
+	"price": 20,
+	"onceStripeID": "price_1IQdi7LO5RaK7SdOdIYHtzdp",
+	"monthlyStripeID": "price_1IQdi7LO5RaK7SdOz896qPgo",
+	"yearlyStripeID": "price_1IQdi7LO5RaK7SdO0rmuURBK"
 }

@@ -1,12 +1,12 @@
 {
-	"name": "Spices",
-	"title": "5kg",
-	"description": "Spice up our meals with an array of tasty flavours! Some people love chili, some people hate it, so we always have a jar on the counter to cater to all tastes.",
-	"type": "Spices",
-	"category": "Nourishments/Spices",
-	"image": "4a.jpg",
-	"price": 40,
-	"onceStripeID": "price_1HfjWCLO5RaK7SdOxsArSxCM",
-	"monthlyStripeID": "price_1HfjWCLO5RaK7SdOSgPh0eam",
-	"yearlyStripeID": "price_1HfjWCLO5RaK7SdOlcPbs5NV"
+	"name": "Chickpeas",
+	"title": "15kg",
+	"description": "We use these in salads, hearty stews, and to make houmous and falafels. So versatile, so delicious, loved by everyone.",
+	"type": "Staples",
+	"category": "Nourishments/Staples",
+	"image": "Chickpeas.jpg",
+	"price": 27,
+	"onceStripeID": "price_1IQdjQLO5RaK7SdOkRltn4gI",
+	"monthlyStripeID": "price_1IQdjQLO5RaK7SdOg8A9NZou",
+	"yearlyStripeID": "price_1IQdjQLO5RaK7SdOrc8OjizI"
 }

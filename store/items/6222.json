@@ -1,12 +1,12 @@
 {
-	"name": "Bread",
-	"title": "For a Week",
-	"description": "Flat bread accompanies each of our meals. This will feed the whole cafe in bread for a whole week.",
-	"type": "Nourishments",
-	"category": "Nourishments/Staples",
-	"image": "6b.jpg",
-	"price": 100,
-	"onceStripeID": "price_1HfjV9LO5RaK7SdOSowFqjmg",
-	"monthlyStripeID": "price_1HfjV9LO5RaK7SdOkuM5xhIm",
-	"yearlyStripeID": "price_1HfjV9LO5RaK7SdO7dWBsaop"
+	"name": "Rice and Beans",
+	"title": "For 600 people (1 day)",
+	"description": "Hearty, nutritious and so many variations from all around the world!",
+	"type": "Meal",
+	"category": "Nourishments/Meals",
+	"image": "RiceAndBeans.jpg",
+	"price": 200,
+	"onceStripeID": "price_1HfjUZLO5RaK7SdOzGSFIqtc",
+	"monthlyStripeID": "price_1HfjUZLO5RaK7SdOKsV32Imz",
+	"yearlyStripeID": "price_1HfjUZLO5RaK7SdOO62X5gD0"
 }
